@@ -5,7 +5,6 @@
   3. Cada capa en mas detallada o especifica que la anterior
   4. Se pueden añadir o eliminar capaz de ser necesario
 */
-
 @forward './utils/_setting';
 @forward './utils/_tools';
 // @forward './utils/_material-theme'; // Theme for Angular Material
@@ -14,3 +13,4 @@
 @forward './utils/_objects';
 @forward './utils/_components';
 @forward './utils/_trumps';
+@import "~bootstrap/dist/css/bootstrap.css";

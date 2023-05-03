@@ -21,7 +21,7 @@
 		"lib": ["es2020", "dom"],
 		"paths": {
 			// Shared and Global paths
-			"@shared/components": ["src/app/components/index.ts"],
+			"@shared/components": ["src/app/components/courses.component.ts"],
 			"@shared/services": ["src/app/services/index.ts"],
 			"@shared/modules": ["src/app/shared/modules/index.ts"],
 			"@shared/models": ["src/app/models/index.ts"],
