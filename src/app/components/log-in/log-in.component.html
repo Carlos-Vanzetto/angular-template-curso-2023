@@ -1,0 +1,78 @@
+<div class="container custom-container">
+  <div class="logoContainer">
+    <app-icon></app-icon>
+    <h1>Vanzeron</h1>
+  </div>
+
+  <form [formGroup]="loginForm" class="form-horizontal">
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="col-xs-12 col-sm-2 control-label">Email address</label>
+      <div class="col-xs-12 col-sm-10">
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+        />
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger" role="alert">
+          <div *ngIf="email?.errors?.['required']">- Email is required</div>
+          <div *ngIf="email?.errors?.['pattern']">- Valid email should look like valid@domain.com</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="col-xs-12 col-sm-2 control-label">Password</label>
+        <div class="col-xs-12 col-sm-10">
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+          />
+
+          <div
+            *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+            class="alert alert-danger"
+            role="alert"
+          >
+            <div *ngIf="password?.value == ''">- Password is required</div>
+            <div *ngIf="password?.errors?.['pattern']" role="alert">
+              <span
+                >- Password must be at least 8 char long and must contain at least 1 lowercase letter, 1 uppercase
+                letter, 1 digit and one special character
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="form-group form-check">
+          <input formControlName="checkOut" type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1">Remember password</label>
+        </div>
+        <a href="">Forgot your password?</a>
+        <div class="col-sm-offset-2 col-sm-10">
+          <button
+            type="submit"
+            class="btn btn-primary mt-4"
+            [disabled]="loginForm.invalid"
+            [ngClass]="loginForm.invalid ? 'btn-secondary' : null"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<!--  
+  Para ver dinamicamente los valores sin entrar a consola
+
+<div>{{ email?.value | json }}</div>
+  <div>{{ password?.value | json }}</div>
+  <pre>email valid: {{ email?.valid }}</pre>
+  <pre>password valid: {{ password?.valid }}</pre> -->

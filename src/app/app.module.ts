@@ -9,10 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BasicFormComponentComponent } from './components/basic-form-component/basic-form-component.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IconComponent } from './components/icon/icon.component';
 
 @NgModule({
-  declarations: [AppComponent, BasicFormComponentComponent],
+  declarations: [AppComponent, LogInComponent, IconComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +22,7 @@ import { BasicFormComponentComponent } from './components/basic-form-component/b
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

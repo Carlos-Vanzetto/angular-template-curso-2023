@@ -1,0 +1,24 @@
+
+
+.form-group{
+  margin-bottom: 30px;
+}
+
+.icon{
+  border-radius: 100px;
+  width: 20rem;
+  height: 20rem;
+}
+
+.logoContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width:600px) {
+  .custom-container{
+    padding: 15px 30px;
+  }
+  
+}
