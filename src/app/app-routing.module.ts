@@ -1,13 +1,13 @@
 // Angular Imports
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { BasicFormComponentComponent } from './components/basic-form-component/basic-form-component.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-	{
-		path: '',
-		redirectTo: 'board',
-		pathMatch: 'full',
-	},
+	{ path: 'login', component: BasicFormComponentComponent },
+	{ path: '', component: HomeComponent, pathMatch: 'full'},
+	{ path: '**', redirectTo: '', pathMatch: 'full'}
 ]
 
 @NgModule({

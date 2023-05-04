@@ -10,9 +10,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasicFormComponentComponent } from './components/basic-form-component/basic-form-component.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
+
 
 @NgModule({
-  declarations: [AppComponent, BasicFormComponentComponent],
+  declarations: [AppComponent, BasicFormComponentComponent, NavbarComponent, FooterComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +27,7 @@ import { BasicFormComponentComponent } from './components/basic-form-component/b
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
