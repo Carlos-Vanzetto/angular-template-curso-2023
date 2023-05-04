@@ -1,17 +1,17 @@
 // Angular Imports
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BasicFormComponentComponent } from './components/basic-form-component/basic-form-component.component';
+import { LogInComponent } from './components/log-in/log-in.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-	{ path: 'login', component: BasicFormComponentComponent },
-	{ path: '', component: HomeComponent, pathMatch: 'full'},
-	{ path: '**', redirectTo: '', pathMatch: 'full'}
-]
+  { path: 'login', component: LogInComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
+];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
