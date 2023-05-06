@@ -1,7 +1,18 @@
-
+.custom-container{
+  color: white;
+  padding: 0 30px;
+  padding-top: 150px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .form-group{
   margin-bottom: 30px;
+}
+.control-label{
+  color: black;
 }
 
 .icon{
@@ -15,10 +26,25 @@
   flex-direction: column;
   align-items: center;
 }
+.link-primary{
+  margin-bottom: 15px;
+}
+.login-btn-container{
+  display: flex;
+  justify-content: center;
+
+}
+.form-check-label{
+  margin-left: 10px;
+}
+.btn[type="submit"]{
+  width: 100%;
+  opacity: 0.8;
+}
 
 @media screen and (max-width:600px) {
-  .custom-container{
-    padding: 15px 30px;
+  .form-group{
+    margin-bottom: 15px;
   }
   
 }
