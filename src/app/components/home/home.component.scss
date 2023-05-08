@@ -1,0 +1,24 @@
+@use "sass:map";
+@import "./../../styles/utils/_setting";
+ 
+
+
+.bg-custom-dark, .bg-custom-light{
+  color: white;
+}
+
+/*
+
+.bg-custom-dark{
+  background-color: map-get($colors,"lightNavy");
+}
+
+.bg-custom-light{
+  background-color: map-get($colors,"lightestNavy");
+}
+.brighten-up{
+  filter: contrast(175%) brightness(200%);;
+}
+*/
+
+

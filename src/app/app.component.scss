@@ -1,7 +1,13 @@
-.view{
-  background: url('../assets/images/pexels-pixabay-220201.jpg')no-repeat center center;
+.background-image {
+  background-image: url('../assets/images/pexels-pixabay-220201.jpg');
   background-size: cover;
+  height: 100vh;
+  position: relative;
+  filter: brightness(90%);
 }
-.view {
-  height: 100vh !important;
-}
+
+
+
+
+
+
