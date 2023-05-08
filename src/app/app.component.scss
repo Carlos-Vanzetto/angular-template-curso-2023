@@ -1,9 +1,12 @@
 .background-image {
   background-image: url('../assets/images/pexels-pixabay-220201.jpg');
   background-size: cover;
-  height: 100vh;
   position: relative;
-  filter: brightness(90%);
+}
+
+.opacity-custom{
+  opacity: 0.81;
+  background-color: black;
 }
 
 
