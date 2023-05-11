@@ -15,9 +15,18 @@ import { IconComponent } from './components/icon/icon.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 
 @NgModule({
-  declarations: [AppComponent, LogInComponent, IconComponent, NavbarComponent, FooterComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    LogInComponent,
+    IconComponent,
+    NavbarComponent,
+    FooterComponent,
+    HomeComponent,
+    RegistrationFormComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

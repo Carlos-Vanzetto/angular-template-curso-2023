@@ -1,3 +1,4 @@
+
 .custom-container{
   color: white;
   padding: 0 30px;
@@ -10,15 +11,28 @@
 
 .form-group{
   margin-bottom: 30px;
+ 
 }
+.formIcon{
+ transform: scale(1.5);
+  margin-right: 15px;
+  padding-top: 23px;
+}
+
+
 .control-label{
   color: black;
 }
-
+.alert-danger{
+  padding: 5px 10px;
+}
 .icon{
   border-radius: 100px;
   width: 20rem;
   height: 20rem;
+}
+.form-control{
+  width: 300px;
 }
 
 .logoContainer{
@@ -39,10 +53,9 @@
 }
 .btn[type="submit"]{
   width: 100%;
-  
 }
 .btn[type="submit"]:disabled{
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 @media screen and (max-width:600px) {

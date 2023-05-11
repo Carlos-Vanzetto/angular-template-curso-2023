@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'login-form',
   templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.scss'],
+  styleUrls: ['../registration-form/registration-form.component.scss'],
 })
 export class LogInComponent implements OnInit {
   loginForm!: FormGroup;
+  faEnvelope = faEnvelope;
+  faLock = faLock;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {

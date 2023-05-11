@@ -6,62 +6,66 @@
 
   <form [formGroup]="loginForm">
     <div class="container-fluid">
-      <div class="form-group">
-        <div class="form-floating">
-          <input
-            formControlName="email"
-            type="email"
-            class="form-control"
-            id="floatingInput"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            [ngClass]="[
-              email?.invalid && (email?.touched || email?.dirty) ? 'is-invalid' : '',
-              email?.valid ? 'is-valid' : ''
-            ]"
-          />
-          <label for="floatingInput" class="control-label">Email address</label>
-        </div>
-        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger" role="alert">
-          <div *ngIf="email?.errors?.['required']">- Email is required</div>
-          <div *ngIf="email?.errors?.['pattern']">- Valid email should look like valid@domain.com</div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="form-floating">
-          <input
-            formControlName="password"
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-            placeholder="Password"
-            [ngClass]="[
-              password?.invalid && (password?.touched || password?.dirty) ? 'is-invalid' : '',
-              password?.valid ? 'is-valid' : ''
-            ]"
-          />
-          <label for="exampleInputPassword1" class="control-label">Password</label>
-        </div>
-        <div
-          *ngIf="password?.invalid && (password?.dirty || password?.touched)"
-          class="alert alert-danger"
-          role="alert"
-        >
-          <div *ngIf="password?.value == ''">- Password is required</div>
-          <div *ngIf="password?.errors?.['pattern']" role="alert">
-            <span>- Password requirements not met </span>
+      <div class="d-flex">
+        <fa-icon [icon]="faEnvelope" class="formIcon"></fa-icon>
+        <div class="form-group">
+          <div class="form-floating">
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              [ngClass]="[
+                email?.invalid && (email?.touched || email?.dirty) ? 'is-invalid' : '',
+                email?.valid ? 'is-valid' : ''
+              ]"
+            />
+            <label for="floatingInput" class="control-label">Email address</label>
+          </div>
+          <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger" role="alert">
+            <div *ngIf="email?.errors?.['required']">- Email is required</div>
+            <div *ngIf="email?.errors?.['pattern']">- Invalid email format</div>
           </div>
         </div>
       </div>
-
+      <div class="d-flex">
+        <fa-icon [icon]="faLock" class="formIcon"></fa-icon>
+        <div class="form-group">
+          <div class="form-floating">
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              [ngClass]="[
+                password?.invalid && (password?.touched || password?.dirty) ? 'is-invalid' : '',
+                password?.valid ? 'is-valid' : ''
+              ]"
+            />
+            <label for="exampleInputPassword1" class="control-label">Password</label>
+          </div>
+          <div
+            *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+            class="alert alert-danger"
+            role="alert"
+          >
+            <div *ngIf="password?.value == ''">- Password is required</div>
+            <div *ngIf="password?.errors?.['pattern']" role="alert">
+              <span>- Password requirements not met </span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="form-group form-check d-flex justify-content-center">
         <input formControlName="checkOut" type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Remember password</label>
       </div>
       <div class="d-flex flex-column align-items-center">
         <a class="link-light" href="">Forgot your password?</a>
-        <p>Don't have an account? <a class="link-light" href="">Register here</a></p>
+        <p>Don't have an account? <a class="link-light" [routerLink]="['/registration']">Register here</a></p>
       </div>
       <div class="login-btn-container">
         <button
