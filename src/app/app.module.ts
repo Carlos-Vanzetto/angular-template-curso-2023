@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HomeComponent,
     RegistrationFormComponent,
     NotFoundComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

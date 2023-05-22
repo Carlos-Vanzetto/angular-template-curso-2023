@@ -5,10 +5,13 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 const routes: Routes = [
+  { path: '', component:HomeComponent},
   { path: 'login', component: LogInComponent },
   { path: 'registration', component: RegistrationFormComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'aboutus', component: AboutUsComponent},
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];
 
