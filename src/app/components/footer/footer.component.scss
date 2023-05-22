@@ -1,0 +1,36 @@
+app-icon{
+  scale: 0.6;
+}
+
+.brand-container{
+  display: flex ;
+  align-items: center ;
+  justify-content: start;
+ }
+
+@media screen and (max-width:480px ){
+  .mb-4{
+    margin-bottom: 1.1rem !important;
+  }
+  p{
+    margin-bottom: 0.5rem !important;
+  }
+  .list-grid{
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center !important;
+    
+  }
+.brand-container{
+  justify-content: center;
+  
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width:930px){
+  .brand-container{
+    display: block;
+  }
+}
+
+
