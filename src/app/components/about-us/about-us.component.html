@@ -1,3 +1,10 @@
-<div class="container">
-    Hola
+<div class="contenedor">
+    <div>
+    <img src="../../../assets/images/carlos.jpg" alt="" class="image " [ngClass]="{'vibrate-1' : mostrar === false}" (click)="mostrar = !mostrar">
+    <p *ngIf="mostrar" class="text-focus-in">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quasi beatae molestias ut dicta impedit, laborum assumenda doloribus voluptatibus autem recusandae debitis! Voluptatem fugiat sed asperiores iusto voluptate officiis laborum.</p>
+    </div>
+    <div>
+    <img src="../../../assets/images/dante.jpg" alt="" class="image vibrate-1" (click)="mostrard = !mostrard">
+    <p *ngIf="mostrard">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, eveniet. Possimus accusamus quo expedita quis repellat voluptates minus, sunt incidunt vel quisquam cum similique quaerat asperiores impedit porro alias? Odit.</p>
+    </div>   
 </div>

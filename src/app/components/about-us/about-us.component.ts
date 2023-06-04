@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
 
+  mostrar = false;
+  mostrard = false;
   constructor() { }
 
   ngOnInit(): void {
