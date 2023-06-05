@@ -14,11 +14,29 @@ export class CountriesService {
   constructor(@Inject(APP_SERVICE_CONFIG) private config: AppConfig, private http: HttpClient) {}
   httpOptions: HttpOptions = {
     headers: new HttpHeaders({
-      'X-RapidAPI-Key': '',
+      'X-RapidAPI-Key': this.config.xRapidApiKey,
       'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
     }),
-    params: { limit: 10 },
+    params: { limit: 10, offset: 15 },
   };
+
+  getCountryList(region: string) {
+    const headers = new HttpHeaders({
+      'x-rapidapi-key': this.config.xRapidApiKeyGraphQL,
+      'x-rapidapi-host': 'geodb-cities-graphql.p.rapidapi.com',
+    });
+
+    const body = `query={
+      countries(region:${region},first:10,orderBy:population_desc){
+        name
+        population
+      }
+    }`;
+
+    return this.http.post('https://geodb-cities-graphql.p.rapidapi.com/', body, {
+      headers: headers,
+    });
+  }
 
   getCountries() {
     return this.http.get<any>(this.config.apiEndpoint + '/countries', this.httpOptions).pipe(

@@ -22,5 +22,12 @@ export class HomeComponent implements OnInit {
       this.isFetching = false;
     });
   }
+  getCountryList(region: string) {
+    this.isFetching = true;
+    this.countryService.getCountryList(region).subscribe((res) => {
+      console.log(res);
+      this.isFetching = false;
+    });
+  }
   ngOnInit(): void {}
 }
