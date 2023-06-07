@@ -18,6 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { APP_CONFIG, APP_SERVICE_CONFIG } from './appConfig/appconfig.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,12 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     ReactiveFormsModule,
     FontAwesomeModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_SERVICE_CONFIG,
+      useValue: APP_CONFIG,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
