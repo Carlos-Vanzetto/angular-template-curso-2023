@@ -61,6 +61,7 @@
 						"optimization": false,
 						"namedChunks": true,
 						"allowedCommonJsDependencies": ["websocket", "cross-fetch"]
+						
 					},
 					"configurations": {
 						"production": {
@@ -97,6 +98,7 @@
 				},
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {"proxyConfig": "src/proxy.conf.json"},
 					"configurations": {
 						"production": {
 							"browserTarget": "angular-template:build:production"

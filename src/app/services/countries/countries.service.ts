@@ -38,6 +38,10 @@ export class CountriesService {
     });
   }
 
+  getCountriesProxy() {
+    return this.http.get('http://localhost/8000/countries/').pipe(map((res) => console.log(res)));
+  }
+
   getCountries() {
     return this.http.get<any>(this.config.apiEndpoint + '/countries', this.httpOptions).pipe(
       map((res) => {

@@ -29,5 +29,11 @@ export class HomeComponent implements OnInit {
       this.isFetching = false;
     });
   }
+  getCountriesProxy() {
+    this.isFetching = true;
+    this.countryService.getCountriesProxy().subscribe((res) => {
+      console.log(res);
+    });
+  }
   ngOnInit(): void {}
 }
