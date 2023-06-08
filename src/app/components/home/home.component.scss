@@ -1,25 +1,67 @@
 @use "sass:map";
 @import "./../../styles/utils/_setting";
- @import "./../../styles/utils/tools";
+@import "./../../styles/utils/tools";
 
-.countries-result{
-  font-size: 32px;
-  color: azure;
-  list-style: none;
-}
-.country-result-container{
-  width: 500px;
-  margin: 50px auto;
-  text-align: center;
-}
-
-.bg-custom-dark, .bg-custom-light{
+.h1-animate{
+  // animation-duration: 2s;
+  // animation-name: aparecer;
+  font-weight: 600;
   color: white;
 }
 
-.h1-animate{
-  animation-duration: 2s;
-  animation-name: aparecer;
+button{
+  width: 100%;
+}
+
+img{
+  height: 300px;
+  filter: brightness(100%);
+}
+
+.card{
+  cursor: pointer;
+}
+
+.card-title{
+  color: black;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.card-text{
+  color: black;
+}
+
+.modal { 
+  color: black;
+  text-align: center;
+}
+
+.modal-header{
+  justify-content: center;
+}
+
+.fade-in {
+	-webkit-animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+ @-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 

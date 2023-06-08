@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiEndpoint: 'https://wft-geo-db.p.rapidapi.com/v1/geo',
+  apiEndpoint: 'https://restcountries.com/v3.1/region/',
 };

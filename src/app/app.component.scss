@@ -1,14 +1,12 @@
 .background-image {
-  background-image: url('../assets/images/pexels-pixabay-220201.jpg');
+  background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('../assets/images/pexels-pixabay-220201.jpg');  
   background-size: cover;
   position: relative;
 }
 
-.opacity-custom{
-  opacity: 0.71;
-  background-color: black;
+.height{
+  min-height: 100vh;
 }
-
 
 
 
