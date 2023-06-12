@@ -17,7 +17,7 @@ export class CountriesService {
 
   constructor(@Inject(APP_SERVICE_CONFIG) private config: AppConfig, private http: HttpClient) {}
 
-  getCountriesRegion(region : string) {
+  getCountriesRegion(region : string) : Observable<any> {
     return this.http.get(`${this.URL}${region}`).pipe(
       map((paises:any)=>paises.map((pais: any)=>{
         return pais.name.common

@@ -1,0 +1,23 @@
+<div class="modal" id="staticBackdrop" data-bs-backdrop="false" data-bs-focus="true" data-bs-keyboard="true"
+  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <div  class="modal-content">
+      <app-spinner *ngIf="loading"></app-spinner>
+      <div *ngIf="!loading">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 " id="staticBackdropLabel">{{modalTitle | uppercase}}</h1>
+        </div>
+        <div class="modal-body">
+          <select class="form-select" aria-label="Default select example">
+            <option *ngFor="let pais of countries">{{pais}}</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,6 +19,9 @@ import { RegistrationFormComponent } from './components/registration-form/regist
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { APP_CONFIG, APP_SERVICE_CONFIG } from './appConfig/appconfig.service';
+import { CardComponent } from './components/home/card/card.component';
+import { ModalComponent } from './components/home/modal/modal.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { APP_CONFIG, APP_SERVICE_CONFIG } from './appConfig/appconfig.service';
     RegistrationFormComponent,
     NotFoundComponent,
     AboutUsComponent,
+    CardComponent,
+    ModalComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

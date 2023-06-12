@@ -1,0 +1,50 @@
+button {
+    width: 100%;
+}
+
+img {
+    height: 300px;
+    filter: brightness(100%);
+}
+
+li{
+  background-color: transparent;
+  color: white;
+}
+
+.card {
+    background-color: transparent;
+    color: white;
+    border: solid white 2px;
+} 
+
+.card-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+
+
+.fade-in {
+	-webkit-animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+ @-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

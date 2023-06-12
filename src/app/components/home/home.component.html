@@ -5,47 +5,9 @@
     <h1 class="fw-bolder h1-animate mt-2">{{titulo}}</h1>
   </div>
   <div class="row row-cols-1 row-cols-md-5 g-4 m-2">
-    <div class="col" *ngFor="let region of regiones">
-      <div class="card fade-in">
-        <div class="card-header">
-          <h5 class="card-title">{{region.nombre | uppercase}}</h5>
-        </div>
-        <img [src]="region.img" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Países: {{region.countries}} </li>
-          <li class="list-group-item">Area: {{region.area}}</li>
-        </ul>
-        <div class="card-footer">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="paisesRegion(region.value, region.nombre)">
-           VER PAÍSES
-          </button>
-
-        </div>
-      </div>
+    <div class="col" *ngFor="let continent of regiones">
+      <app-card [continent]="continent" (parametrosSeleccionados)="getPaises($event)"></app-card>
     </div>
   </div>
-  <!-- Modal -->
-  <div class="modal" id="staticBackdrop" data-bs-backdrop="false" data-bs-focus="true" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 " id="staticBackdropLabel">{{region | uppercase}}</h1>
-        </div>
-        <div class="modal-body">
-          <select  class="form-select" aria-label="Default select example">
-            <option *ngFor="let pais of paises">{{pais}}</option>
-          </select>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
-    </div>
-  </div>  
 </div>
+<app-modal [countries]='countries' [modalTitle]="modalTitle" [loading]="loading"></app-modal>
