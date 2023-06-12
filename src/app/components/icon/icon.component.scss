@@ -9,3 +9,14 @@
 .ng-fa-icon{
   font-size: 50px;
 }
+
+@media (max-height:720px) {
+  .iconContainer{
+    width: 70px;
+    height: 70px;
+  }
+  .ng-fa-icon{
+    font-size: 30px;
+  }
+
+}
