@@ -1,10 +1,35 @@
+@use '../../styles/utils/tools';
+@use '../../styles/utils/setting';
+@use 'sass:map';
+
+$breakPoints: (
+	// zero
+	zr: 0,
+	// mobile
+	mb: 320px,
+	// landscape
+	ls: 576px,
+	// tablet
+	tb: 768px,
+	// desktop
+	dt: 992px,
+	// extra desktop
+	xd: 1200px
+);
+
+
 .contenedor{
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-around;
-    margin-top: 20px;
+    justify-content: space-evenly;
+    margin-top: 50px;
     min-height: 100vh;
+}
+
+.dev-portrait{
+  margin: 0 auto;
+  font-size: smaller;
 }
 
 
@@ -12,9 +37,12 @@
     height:300px;
     width: 300px;
     border-radius: 200px;
-    border: 8px ridge white;
+    border: 3px solid white;
     filter: grayscale(100%);
     transition: 500ms;
+}
+.coloured{
+  filter: grayscale(0%);
 }
 
 .image:hover{
@@ -24,10 +52,11 @@
 
 
 
-p{
+.dev-description{
     width: 300px;
     font-size: 1.5rem;
     margin-top: 20px;
+    padding-left: 15px;
 }
 
 .text-focus-in {
@@ -35,32 +64,38 @@ p{
 	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
- @-webkit-keyframes text-focus-in {
-    0% {
-      -webkit-filter: blur(12px);
-              filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-filter: blur(0px);
-              filter: blur(0px);
-      opacity: 1;
-    }
-  }
-  @keyframes text-focus-in {
-    0% {
-      -webkit-filter: blur(12px);
-              filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-filter: blur(0px);
-              filter: blur(0px);
-      opacity: 1;
-    }
+ 
+
+  .heartbeat {
+    -webkit-animation: heartbeat 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
+            animation: heartbeat 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
   }
 
-.vibrate-1 {
+  @media screen and (max-width:575px) {
+    .flex-column-Acenter{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+      
+    .contenedor {
+        flex-direction: column;
+  }
+
+  .dev-portrait{
+    @extend .flex-column-Acenter;
+       
+  }
+
+  .image{
+    height: 250px;
+    width: 250px;
+  }
+  .dev-description{
+    font-size: 1rem; 
+  }
+}
+/* .vibrate-1 {
 	-webkit-animation: vibrate-1 0.3s linear infinite both;
 	        animation: vibrate-1 0.3s linear infinite both;
 }
@@ -117,4 +152,4 @@ p{
               transform: translate(0);
     }
   }
-  
+   */
