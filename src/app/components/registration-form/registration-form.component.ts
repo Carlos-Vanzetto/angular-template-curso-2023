@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, ValidationErrors } from '@angular/forms';
 import { faUser, faEnvelope, faLock, faKey } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { confirmedValidator } from 'src/app/shared/confirmed-validator.directive';
@@ -16,7 +16,7 @@ export class RegistrationFormComponent implements OnInit {
   faKey = faKey;
 
   // use this observable to notify errors
-  errors$: Observable<any> = new Observable((subscriber) => {
+  errors$: Observable<ValidationErrors | null> = new Observable((subscriber) => {
     subscriber.next(this.registrationForm.errors);
     this.registrationForm.valueChanges.subscribe(() => {
       subscriber.next(this.registrationForm.errors);

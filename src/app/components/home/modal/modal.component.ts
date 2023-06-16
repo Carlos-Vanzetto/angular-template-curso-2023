@@ -7,7 +7,7 @@ import { CountriesService } from 'src/app/services/countries/countries.service';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
-  @Input() countries: any;
+  @Input() countries!: string[];
   @Input() modalTitle!: string;
   @Input() loading!: boolean;
 

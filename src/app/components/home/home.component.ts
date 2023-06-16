@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from 'src/app/models/country';
-import { Continente } from 'src/app/models/continents';
+import { Continent } from 'src/app/models/continents';
 import { RegionParams } from 'src/app/models/region-params';
 import { CountriesService } from 'src/app/services/countries/countries.service';
 @Component({
@@ -9,45 +9,45 @@ import { CountriesService } from 'src/app/services/countries/countries.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  titulo: string;
-  continentes: Continente[];
+  title: string;
+  continents: Continent[];
   countries: string[];
   modalTitle: string;
   loading: boolean;
 
   constructor(private _countriesServices: CountriesService) {
-    this.titulo = 'Descubre los datos de los países mas significativos de cada región';
-    this.continentes = [
+    this.title = 'Descubre los datos de los países mas significativos de cada región';
+    this.continents = [
       {
-        nombre: 'America',
+        name: 'America',
         value: 'Americas',
         countries: 56,
         area: '42.55 millones km²',
         img: '../../../assets/images/america.jpg',
       },
       {
-        nombre: 'Africa',
+        name: 'Africa',
         value: 'Africa',
         countries: 59,
         area: '30.37 millones km²',
         img: '../../../assets/images/africa.jpg',
       },
       {
-        nombre: 'Europa',
+        name: 'Europa',
         value: 'Europe',
         countries: 53,
         area: '10.53 millones km²',
         img: '../../../assets/images/europa.jpg',
       },
       {
-        nombre: 'Oceania',
+        name: 'Oceania',
         value: 'Oceania',
         countries: 27,
         area: '8.526 millones km²',
         img: '../../../assets/images/oceania.jpg',
       },
       {
-        nombre: 'Asia',
+        name: 'Asia',
         value: 'Asia',
         countries: 50,
         area: '44.58 millones km²',
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getPaises(regionParams: RegionParams) {
+  getCountries(regionParams: RegionParams): void {
     this.loading = true;
 
     setTimeout(() => {

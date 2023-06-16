@@ -1,5 +1,5 @@
-export interface Continente {
-  nombre: string;
+export interface Continent {
+  name: string;
   value: string;
   countries: number;
   area: string;
