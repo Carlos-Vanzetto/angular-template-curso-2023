@@ -12,17 +12,17 @@ import { environment } from '@environment';
   providedIn: 'root',
 })
 export class CountriesService {
-
   URL = environment.apiEndpoint;
 
   constructor(@Inject(APP_SERVICE_CONFIG) private config: AppConfig, private http: HttpClient) {}
 
-  getCountriesRegion(region : string) : Observable<any> {
-    return this.http.get(`${this.URL}${region}`).pipe(
-      map((paises:any)=>paises.map((pais: any)=>{
-        return pais.name.common
-      }))
-    ) 
-}
-
+  getCountriesRegion(region: string): Observable<string[]> {
+    return this.http.get<Country[]>(`${this.URL}${region}`).pipe(
+      map((paises: Country[]) =>
+        paises.map((pais: Country) => {
+          return pais.name.common;
+        })
+      )
+    );
+  }
 }

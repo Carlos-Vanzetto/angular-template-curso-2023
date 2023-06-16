@@ -2,12 +2,12 @@
   <div class="container px-4 text-center">
     <app-icon class="d-flex justify-content-center"></app-icon>
     <h1>VANZERON</h1>
-    <h1 class="fw-bolder h1-animate mt-2">{{titulo}}</h1>
+    <h1 class="fw-bolder h1-animate mt-2">{{ titulo }}</h1>
   </div>
   <div class="row row-cols-1 row-cols-md-5 g-4 m-2">
-    <div class="col" *ngFor="let continent of regiones">
+    <div class="col" *ngFor="let continent of continentes">
       <app-card [continent]="continent" (parametrosSeleccionados)="getPaises($event)"></app-card>
     </div>
   </div>
 </div>
-<app-modal [countries]='countries' [modalTitle]="modalTitle" [loading]="loading"></app-modal>
+<app-modal [countries]="countries" [modalTitle]="modalTitle" [loading]="loading"></app-modal>

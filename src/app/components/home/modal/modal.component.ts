@@ -4,24 +4,14 @@ import { CountriesService } from 'src/app/services/countries/countries.service';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
+  @Input() countries: any;
+  @Input() modalTitle!: string;
+  @Input() loading!: boolean;
 
-  @Input() countries : any;
-  @Input() modalTitle : any;
-  @Input() loading : any;
+  constructor(private _countriesServices: CountriesService) {}
 
- 
-
-  constructor(private _countriesServices : CountriesService) {
-   
-   }
-
-  ngOnInit(): void {
-  
-  }
-
- 
-  
+  ngOnInit(): void {}
 }
