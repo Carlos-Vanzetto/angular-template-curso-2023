@@ -2,21 +2,20 @@
   <div class="card-header">
     <h5 class="card-title">{{ continent.name | uppercase }}</h5>
   </div>
-  <img [src]="continent.img" class="card-img-top" alt="..." />
+  <img [src]="continent.img" class="card-img-top card__img" alt="..." />
   <div class="card-body">
-    <p class="card-text">
-      This is a longer card with supporting text below as a natural lead-in to additional content. This content is a
-      little bit longer.
+    <p class="card-text card__text">
+      {{continent.description}}
     </p>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Países: {{ continent.countries }}</li>
-    <li class="list-group-item">Area: {{ continent.area }}</li>
+  <ul class="list-group list-group-flush card__ul">
+    <li class="list-group-item card__li"><b>Países: </b>{{ continent.countries }}</li>
+    <li class="list-group-item card__li"><b>Area:</b> {{ continent.area }}</li>
   </ul>
   <div class="card-footer">
     <button
       type="button"
-      class="btn btn-primary"
+      class="btn btn-primary card__button"
       data-bs-toggle="modal"
       data-bs-target="#staticBackdrop"
       (click)="getContinent(continent.value, continent.name)"

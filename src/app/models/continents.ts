@@ -4,4 +4,5 @@ export interface Continent {
   countries: number;
   area: string;
   img: string;
+  description: string;
 }
