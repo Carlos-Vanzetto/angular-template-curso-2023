@@ -13,15 +13,22 @@ export class ModalComponent implements OnInit {
   @Input() modalTitle!: string;
   @Input() loading!: boolean;
 
+  selectedCountry : string = '';
   constructor(private _loginService: LoginService,
-              private router: Router) {}
+              private router: Router) {
+              
+              }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   
   getPais(){
-    if(!this._loginService.isLoggedIn){
-      this.router.navigate(['/login']);
-      return
-     }
+    // if(!this._loginService.isLoggedIn){
+    //   this.router.navigate(['/login']);
+    //   return
+    //  } else {
+      this.router.navigate([`/country/${this.selectedCountry}`])
+    //  }
+
   }
 }

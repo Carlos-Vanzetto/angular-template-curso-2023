@@ -16,13 +16,13 @@
           <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ modalTitle | uppercase }}</h1>
         </div>
         <div class="modal-body">
-          <select class="form-select" aria-label="Default select example">
-            <option *ngFor="let country of countries">{{ country }}</option>
+          <select  class="form-select" [(ngModel)]="selectedCountry"  aria-label="Default select example">
+            <option *ngFor="let country of countries" >{{ country }}</option>
           </select>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="getPais()">ACCEPT</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="selectedCountry.length < 1" (click)="getPais()" >ACCEPT</button>
         </div>
       </div>
     </div>
