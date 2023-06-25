@@ -12,17 +12,28 @@ import { environment } from '@environment';
   providedIn: 'root',
 })
 export class CountriesService {
-  URL = environment.apiEndpoint;
+  URLREGION = environment.apiRegionEndpoint;
+  URLCOUNTRY = environment.apiCountryEndpoint;
 
   constructor(@Inject(APP_SERVICE_CONFIG) private config: AppConfig, private http: HttpClient) {}
 
   getCountriesRegion(region: string): Observable<string[]> {
-    return this.http.get<Country[]>(`${this.URL}${region}`).pipe(
+    return this.http.get<Country[]>(`${this.URLREGION}${region}`).pipe(
       map((paises: Country[]) =>
         paises.map((pais: Country) => {
           return pais.name.common;
         })
       )
     );
+  }
+
+  getCountry(country: string): Observable<Country> {
+    return this.http.get<Country[]>(`${this.URLCOUNTRY}${country}`).pipe(
+      map(([countryArray]: Country[])=>{
+          return countryArray
+      }
+      )
+    )
+    ;
   }
 }

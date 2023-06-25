@@ -22,6 +22,7 @@ import { APP_CONFIG, APP_SERVICE_CONFIG } from './appConfig/appconfig.service';
 import { CardComponent } from './components/home/card/card.component';
 import { ModalComponent } from './components/home/modal/modal.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { CountryComponent } from './components/country/country.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     CardComponent,
     ModalComponent,
     SpinnerComponent,
+    CountryComponent,
   ],
   imports: [
     BrowserModule,

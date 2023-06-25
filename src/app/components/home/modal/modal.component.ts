@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { __values } from 'tslib';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-modal',
@@ -38,7 +40,17 @@ export class ModalComponent implements OnInit {
     this.filteredSize = 1;
   }
 
-  constructor() {}
+  selectedCountry: string = '';
+  constructor(private _loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  getPais() {
+    // if(!this._loginService.isLoggedIn){
+    //   this.router.navigate(['/login']);
+    //   return
+    //  } else {
+    this.router.navigate([`/country/${this.selectedCountry}`]);
+    //  }
+  }
 }
