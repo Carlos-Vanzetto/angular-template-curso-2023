@@ -8,7 +8,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [LoginGuard] },
+  { path: '', component: HomeComponent /* , canActivate: [LoginGuard] */ },
   { path: 'login', component: LogInComponent },
   { path: 'registration', component: RegistrationFormComponent },
   { path: 'aboutus', component: AboutUsComponent },

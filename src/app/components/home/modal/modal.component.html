@@ -16,7 +16,26 @@
           <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ modalTitle | uppercase }}</h1>
         </div>
         <div class="modal-body">
-          <select class="form-select" aria-label="Default select example">
+          <div class="fixed">
+            <input
+              type="text"
+              class="form-control"
+              id="filter"
+              [formControl]="filter"
+              #inputFilter
+              placeholder="Search"
+              (keyup)="onKeyUp(filter.value)"
+            />
+            <label for="filter"></label>
+          </div>
+          <select
+            [attr.size]="filteredSize"
+            class="form-select"
+            aria-label="Default select example"
+            #selectOptions
+            [formControl]="selectCountry"
+            (input)="resize()"
+          >
             <option *ngFor="let country of countries">{{ country }}</option>
           </select>
         </div>
