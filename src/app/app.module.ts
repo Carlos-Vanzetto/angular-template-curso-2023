@@ -23,6 +23,7 @@ import { CardComponent } from './components/home/card/card.component';
 import { ModalComponent } from './components/home/modal/modal.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { CountryComponent } from './components/country/country.component';
+import { DateComponent } from './components/country/date/date.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CountryComponent } from './components/country/country.component';
     ModalComponent,
     SpinnerComponent,
     CountryComponent,
+    DateComponent,
   ],
   imports: [
     BrowserModule,

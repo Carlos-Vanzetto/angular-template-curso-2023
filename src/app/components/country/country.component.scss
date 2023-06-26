@@ -1,102 +1,11 @@
-div.clock-container {
-    position: relative;
-    margin: auto;
-    width: 250px;
-    height: 250px;
-    padding-top: 50px;
+
+.spinner{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    height: 100vh;
 }
 
-div.itunes-plasmid {
-    width: 200px;
-    height: 200px;
-    //border: 40px solid rgb(10, 179, 186);
-    border: 10px solid rgb(64, 64, 64);
-    //padding: 20px;
-    padding: 35px;
-    margin-left: 15px;
-    margin-top: 15px;
-    border-radius: 50%;
-    position: absolute;
-}
-
-div.itunes-plasmid>p {
-    font-family: 'Open Sans', 'sans-serif';
-    font-weight: normal;
-    margin: auto;
-    padding-top: 35%;
-    text-align: center;
-}
-
-div.ORF-1 {
-    width: 200px;
-    height: 200px;
-    border: 40px solid transparent;
-    border-top-color: rgba(75, 97, 218, 0.75);
-    padding: 20px;
-    border-radius: 50%;
-    position: absolute;
-
-}
-
-div.ORF-2 {
-    border: 20px solid rgba(75, 97, 218, 0.75);
-    border-right-color: transparent;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-    margin-left: 193px;
-    margin-top: -5px;
-    position: absolute;
-    transform: rotate(45deg);
-}
-
-div.RBS-1 {
-    width: 200px;
-    height: 200px;
-    border: 40px solid transparent;
-    border-top-color: rgba(250, 175, 66, 1);
-    padding: 20px;
-    border-radius: 50%;
-    position: absolute;
-}
-
-div.RBS-2 {
-    border: 20px solid maroon;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    margin-left: 80px;
-    margin-top: -78px;
-    position: absolute;
-    border-radius: 50%;
-    transform: rotate(45deg);
-}
-
-div.promoter-1 {
-    width: 200px;
-    height: 200px;
-    border: 40px solid transparent;
-    border-top-color: rgba(255, 105, 180, 1);
-    padding: 20px;
-    border-radius: 50%;
-    position: absolute;
-}
-
-div.promoter-2 {
-    border: 20px solid maroon;
-    border-right: transparent;
-    border-bottom: transparent;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    margin-left: 80px;
-    margin-top: -98px;
-}
-
-div.promoter-3 {
-    border: 20px solid maroon;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-    position: absolute;
-    margin-left: 120px;
-    margin-top: -108px;
+.title{
+    font-size: 4rem;
 }

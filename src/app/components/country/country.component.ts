@@ -10,36 +10,37 @@ import { CountriesService } from 'src/app/services/countries/countries.service';
 })
 export class CountryComponent implements OnInit {
 
-  country : string;
-  flag! : string;
-  name : string;
-  s = document.getElementsByClassName("ORF-1");
-
-  constructor(private aRoute : ActivatedRoute,
-              private _countryService : CountriesService) { 
-    this.name = '';
+  loading = false;
+  country: string;
+  flag!: string;
+  name!: string;
+  timezones! : string[];
+  
+  constructor(private aRoute: ActivatedRoute,
+    private _countryService: CountriesService) {
     this.country = this.aRoute.snapshot.paramMap.get('name')!;
-    
+
   }
 
   ngOnInit(): void {
-    console.log(this.country)
-    this.getCountry(this.country)
-    for (let i = 0; i < this.s.length; i++) {
-      const slide = this.s[i] as HTMLElement;
-      slide.style.display = "none";
-  }
-    console.log(this.s[0])
+    this.getCountry(this.country);
   }
 
-  getCountry(name : string): void{
-     this._countryService.getCountry(name).subscribe((country : Country)=>{
-      console.log(country)
-      this.flag = country.flag;
-      this.name = country.name.common;
+  getCountry(name: string): void {
+    this.loading = true
+    this._countryService.getCountry(name).subscribe(({flag,name,timezones}: Country) => {
+      this.flag = flag;
+      this.name = name.common;
+      this.timezones = timezones;
     })
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500)
+    
   }
-  
+
+
+
 
 }
 
