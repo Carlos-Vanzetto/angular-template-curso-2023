@@ -1,3 +1,5 @@
+
+
 .modal {
     
     color: black;
@@ -20,4 +22,12 @@
     position: sticky;
     top:0;
     z-index: 999;
+}
+.btn-close{
+    position: relative;
+    top: 20px;
+    left: 210px
+}
+.form-control{
+    width: 322px;
 }

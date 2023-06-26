@@ -12,6 +12,13 @@
     <div class="modal-content">
       <app-spinner *ngIf="loading"></app-spinner>
       <div *ngIf="!loading">
+        <button
+          type="button"
+          class="btn btn-secondary btn-close"
+          data-bs-dismiss="modal"
+          (click)="cleanSelect()"
+          aria-label="Close"
+        ></button>
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ modalTitle | uppercase }}</h1>
         </div>
@@ -34,18 +41,19 @@
             aria-label="Default select example"
             #selectOptions
             [formControl]="selectCountry"
+            (change)="onSelected()"
             (input)="resize()"
           >
             <option *ngFor="let country of countries">{{ country }}</option>
           </select>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
           <button
-            type="button"
-            class="btn btn-primary"
+            type="submit"
+            class="btn"
             data-bs-dismiss="modal"
-            [disabled]="selectedCountry.length < 1"
+            [disabled]="selectCountry.invalid"
+            [ngClass]="selectCountry.invalid ? 'btn-secondary' : 'btn-primary'"
             (click)="getPais()"
           >
             ACCEPT
