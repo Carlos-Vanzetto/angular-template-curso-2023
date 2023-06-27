@@ -4,6 +4,5 @@ export interface HttpOptions {
   headers: HttpHeaders;
   params?: {
     limit: number;
-    offset?: number;
   };
 }

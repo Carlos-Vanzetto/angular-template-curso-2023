@@ -1,25 +1,12 @@
 @use "sass:map";
 @import "./../../styles/utils/_setting";
- @import "./../../styles/utils/tools";
-
-.countries-result{
-  font-size: 32px;
-  color: azure;
-  list-style: none;
-}
-.country-result-container{
-  width: 500px;
-  margin: 50px auto;
-  text-align: center;
-}
-
-.bg-custom-dark, .bg-custom-light{
-  color: white;
-}
+@import "./../../styles/utils/tools";
 
 .h1-animate{
-  animation-duration: 2s;
-  animation-name: aparecer;
+  // animation-duration: 2s;
+  // animation-name: aparecer;
+  font-weight: 600;
+  color: white;
 }
 
 

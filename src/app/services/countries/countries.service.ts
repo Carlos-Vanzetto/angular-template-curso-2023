@@ -7,47 +7,30 @@ import { Country } from 'src/app/models/country';
 import { APP_SERVICE_CONFIG } from 'src/app/appConfig/appconfig.service';
 import { AppConfig } from 'src/app/appConfig/appconfig.interface';
 import { HttpOptions } from 'src/app/models/http-options.interface';
+import { environment } from '@environment';
 @Injectable({
   providedIn: 'root',
 })
 export class CountriesService {
+  URLREGION = environment.apiRegionEndpoint;
+  URLCOUNTRY = environment.apiCountryEndpoint;
+
   constructor(@Inject(APP_SERVICE_CONFIG) private config: AppConfig, private http: HttpClient) {}
-  httpOptions: HttpOptions = {
-    headers: new HttpHeaders({
-      'X-RapidAPI-Key': this.config.xRapidApiKey,
-      'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
-    }),
-    params: { limit: 10, offset: 15 },
-  };
 
-  getCountryList(region: string) {
-    const headers = new HttpHeaders({
-      'x-rapidapi-key': this.config.xRapidApiKeyGraphQL,
-      'x-rapidapi-host': 'geodb-cities-graphql.p.rapidapi.com',
-    });
-
-    const body = `query={
-      countries(region:${region},first:10,orderBy:population_desc){
-        name
-        population
-      }
-    }`;
-
-    return this.http.post('https://geodb-cities-graphql.p.rapidapi.com/', body, {
-      headers: headers,
-    });
+  getCountriesRegion(region: string): Observable<string[]> {
+    return this.http.get<Country[]>(`${this.URLREGION}${region}`).pipe(
+      map((paises: Country[]) =>
+        paises.map((pais: Country) => {
+          return pais.name.common;
+        })
+      )
+    );
   }
 
-  getCountriesProxy() {
-    return this.http.get('http://localhost/8000/countries/').pipe(map((res) => console.log(res)));
-  }
-
-  getCountries() {
-    return this.http.get<any>(this.config.apiEndpoint + '/countries', this.httpOptions).pipe(
-      map((res) => {
-        const countries: Country[] = res.data;
-        let countryNames: string[] = countries.map((country: any) => country.name);
-        return { countries, countryNames };
+  getCountry(country: string): Observable<Country> {
+    return this.http.get<Country[]>(`${this.URLCOUNTRY}${country}`).pipe(
+      map(([countryArray]: Country[]) => {
+        return countryArray;
       })
     );
   }

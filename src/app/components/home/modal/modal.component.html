@@ -1,0 +1,65 @@
+<div
+  class="modal"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-focus="true"
+  data-bs-keyboard="true"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <app-spinner *ngIf="loading"></app-spinner>
+      <div *ngIf="!loading">
+        <button
+          type="button"
+          class="btn btn-secondary btn-close"
+          data-bs-dismiss="modal"
+          (click)="cleanSelect()"
+          aria-label="Close"
+        ></button>
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ modalTitle | uppercase }}</h1>
+        </div>
+        <div class="modal-body">
+          <div class="fixed">
+            <input
+              type="text"
+              class="form-control"
+              id="filter"
+              [formControl]="filter"
+              #inputFilter
+              placeholder="Search"
+              (keyup)="onKeyUp(filter.value)"
+            />
+            <label for="filter"></label>
+          </div>
+          <select
+            [attr.size]="filteredSize"
+            class="form-select"
+            aria-label="Default select example"
+            #selectOptions
+            [formControl]="selectCountry"
+            (change)="onSelected()"
+            (input)="resize()"
+          >
+            <option *ngFor="let country of countries">{{ country }}</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn"
+            data-bs-dismiss="modal"
+            [disabled]="selectCountry.invalid"
+            [ngClass]="selectCountry.invalid ? 'btn-secondary' : 'btn-primary'"
+            (click)="getPais()"
+          >
+            ACCEPT
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

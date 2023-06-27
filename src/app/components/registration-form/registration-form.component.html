@@ -1,6 +1,6 @@
 <div class="container custom-container">
   <div class="logoContainer">
-    <app-icon></app-icon>
+    <app-icon class="logo-icon"></app-icon>
     <h1>Vanzeron</h1>
   </div>
 
@@ -11,6 +11,8 @@
         <div class="form-group">
           <div class="form-floating">
             <input
+              required
+              autocomplete="on"
               type="text"
               id="user-name"
               class="form-control"
@@ -38,6 +40,8 @@
         <div class="form-group">
           <div class="form-floating">
             <input
+              required
+              autocomplete="on"
               formControlName="email"
               type="email"
               class="form-control"
@@ -62,6 +66,7 @@
         <div class="form-group">
           <div class="form-floating">
             <input
+              required
               formControlName="password"
               type="password"
               class="form-control"
@@ -72,7 +77,7 @@
                 password?.valid ? 'is-valid' : ''
               ]"
             />
-            <label for="Password" class="control-label">Password</label>
+            <label for="password" class="control-label">Password</label>
           </div>
           <div
             *ngIf="password?.invalid && (password?.dirty || password?.touched)"
@@ -91,20 +96,21 @@
         <div class="form-group">
           <div class="form-floating">
             <input
+              required
               formControlName="passwordRepeat"
               type="password"
               class="form-control"
               id="repeat-password"
               placeholder="Password"
               [ngClass]="[
-                passwordRepeat?.invalid && (passwordRepeat?.touched || passwordRepeat?.dirty) ? 'is-invalid' : '',
-                passwordRepeat?.valid ? 'is-valid' : ''
+                (passwordRepeat?.invalid && (passwordRepeat?.touched || passwordRepeat?.dirty)) || registrationForm.errors?.['ConfirmedValidator'] ? 'is-invalid' : '',
+                (passwordRepeat?.valid && !registrationForm.errors?.['ConfirmedValidator'] ) ?  'is-valid' : ''
               ]"
             />
             <label class="control-label" for="repeat-password">Repeat your password</label>
           </div>
           <div
-            *ngIf="passwordRepeat?.invalid && (passwordRepeat?.dirty || passwordRepeat?.touched)"
+            *ngIf="(passwordRepeat?.invalid && (passwordRepeat?.dirty || passwordRepeat?.touched)) || registrationForm.errors?.['ConfirmedValidator']"
             class="alert alert-danger"
             role="alert"
           >
@@ -112,12 +118,18 @@
             <div *ngIf="passwordRepeat?.errors?.['pattern']" role="alert">
               <span>- Password requirements not met </span>
             </div>
-            <div *ngIf="passwordRepeat?.hasError('confirmedValidator')">Passwords do not match.</div>
+            <div
+              *ngIf="registrationForm.errors?.['ConfirmedValidator'] && passwordRepeat?.value != '' && (registrationForm.touched || registrationForm.dirty)"
+              role="alert"
+            >
+              - Passwords do not match
+            </div>
           </div>
         </div>
       </div>
-      <div class="form-check d-flex justify-content-center mb-5">
+      <div class="form-check d-flex justify-content-center mb-3">
         <input
+          required
           class="form-check-input me-2"
           formControlName="termsAgreement"
           type="checkbox"

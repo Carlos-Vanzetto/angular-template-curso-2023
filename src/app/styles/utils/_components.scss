@@ -7,3 +7,92 @@
     2. colores, tipografías, branding de la marca o empresa
     3. exclusivamente se usaran selectores de clases
 */
+
+// --------  Form --------------------------------
+.flex-column-Acenter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-container{
+  color: white;
+  padding: 0 30px;
+  padding-top: 50px;
+  background-color: transparent;
+  @extend .flex-column-Acenter;
+}
+
+.form-group{
+  margin-bottom: 30px;
+ 
+}
+.formIcon{
+ transform: scale(1.5);
+  margin-right: 15px;
+  padding-top: 15px;
+  height: fit-content;
+}
+
+
+.control-label{
+  color: black;
+}
+.alert-danger{
+  padding: 5px 10px;
+}
+.icon{
+  border-radius: 100px;
+  width: 20rem;
+  height: 20rem;
+}
+.form-control{
+  width: 300px;
+}
+
+
+.logoContainer{
+ @extend .flex-column-Acenter;
+}
+.link-primary{
+  margin-bottom: 15px;
+}
+.login-btn-container{
+  display: flex;
+  justify-content: center;
+
+}
+.form-check-label{
+  margin-left: 10px;
+}
+.btn[type="submit"]{
+  width: 100%;
+}
+.btn[type="submit"]:disabled{
+  opacity: 0.5;
+}
+@media (max-height: 720px) {
+  .custom-container{
+    padding-top: 0px;
+  }
+  .alert-danger{
+    padding: 2px 10px;
+  }
+  .d-flex{
+    max-height: 90px;
+    font-size: 0.8rem;
+  }
+.logo-icon{
+  height: 70px;
+  width: 70px;
+  font-size: smaller;
+}
+
+}
+@media screen and (max-width:600px) {
+  .custom-container{
+    margin-bottom: 15px;
+  }
+  
+}
+// =======================End Form==========================================

@@ -1,0 +1,33 @@
+
+
+.modal {
+    
+    color: black;
+    text-align: center;
+}
+
+.modal-header {
+    justify-content: center;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    min-width: 300px;
+}
+.fixed{
+    position: sticky;
+    top:0;
+    z-index: 999;
+}
+.btn-close{
+    position: relative;
+    top: 20px;
+    left: 210px
+}
+.form-control{
+    width: 322px;
+}

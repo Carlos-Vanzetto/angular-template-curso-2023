@@ -17,7 +17,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 import { APP_CONFIG, APP_SERVICE_CONFIG } from './appConfig/appconfig.service';
+import { CardComponent } from './components/home/card/card.component';
+import { ModalComponent } from './components/home/modal/modal.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { CountryComponent } from './components/country/country.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,11 @@ import { APP_CONFIG, APP_SERVICE_CONFIG } from './appConfig/appconfig.service';
     HomeComponent,
     RegistrationFormComponent,
     NotFoundComponent,
+    AboutUsComponent,
+    CardComponent,
+    ModalComponent,
+    SpinnerComponent,
+    CountryComponent,
   ],
   imports: [
     BrowserModule,
