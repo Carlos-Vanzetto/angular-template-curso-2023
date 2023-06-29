@@ -1,3 +1,5 @@
+
+
 .modal {
     
     color: black;
@@ -15,4 +17,17 @@
     justify-content: center;
     min-height: 200px;
     min-width: 300px;
+}
+.fixed{
+    position: sticky;
+    top:0;
+    z-index: 999;
+}
+.btn-close{
+    position: relative;
+    top: 20px;
+    left: 210px
+}
+.form-control{
+    width: 322px;
 }

@@ -9,10 +9,10 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { LoginGuard } from './guards/login.guard';
 import { CountryComponent } from './components/country/country.component';
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: HomeComponent },
   // { path: '', component: HomeComponent, canActivate: [LoginGuard] },
   { path: 'login', component: LogInComponent },
-  { path: 'country/:name', component: CountryComponent}, //canActivate: [LoginGuard]},
+  { path: 'country/:name', component: CountryComponent }, //canActivate: [LoginGuard]},
   { path: 'registration', component: RegistrationFormComponent },
   { path: 'aboutus', component: AboutUsComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },

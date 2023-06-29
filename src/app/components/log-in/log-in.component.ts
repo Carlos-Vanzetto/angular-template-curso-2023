@@ -30,7 +30,7 @@ export class LogInComponent implements OnInit {
             Validators.required,
             Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'),
           ],
-          updateOn: 'blur',
+          updateOn: 'change',
         },
       ],
       checkOut: false,
@@ -47,7 +47,11 @@ export class LogInComponent implements OnInit {
     return this.loginForm.get('checkOut');
   }
   submit(email: string, password: string) {
-    this.loginService.login(email, password);
-    this.router.navigate(['']);
+    const validLogin = this.loginService.login(email, password);
+    if (validLogin) {
+      this.router.navigate(['']);
+    } else {
+      alert('Invalid email or password');
+    }
   }
 }

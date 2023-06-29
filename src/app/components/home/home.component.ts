@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Country } from 'src/app/models/country';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Continent } from 'src/app/models/continents';
 import { RegionParams } from 'src/app/models/region-params';
 import { CountriesService } from 'src/app/services/countries/countries.service';
