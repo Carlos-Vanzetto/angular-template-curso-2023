@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'America',
         value: 'Americas',
-        countries: 56,
+        countries: 35,
         area: '42.55 millones km²',
         img: '../../../assets/images/america.jpg',
         description: 'América es un amplio continente que se extiende en el sentido de los meridianos, y además, tiene un largo desarrollo latitudinal. América es la segunda masa de tierra más grande del planeta, luego de Asia.'
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'Africa',
         value: 'Africa',
-        countries: 59,
+        countries: 54,
         area: '30.37 millones km²',
         img: '../../../assets/images/africa.jpg',
         description: 'África es el tercer continente más grande del planeta y su nombre corresponde a la palabra que usaban los antiguos romanos para referirse a todos los países al sur del Mediterráneo (Afri). Mucho antes, hace 300 000 años, de África surgió el Homo sapiens desde donde se expandió por todo el mundo.'
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'Europa',
         value: 'Europe',
-        countries: 53,
+        countries: 45,
         area: '10.53 millones km²',
         img: '../../../assets/images/europa.jpg',
         description: 'Europa es uno de los seis continentes del mundo y el quinto más extenso. Limita al norte con el océano Ártico, al sur con el mar Mediterráneo, el mar Negro y el mar Caspio, al este con los montes Urales y al oeste con el océano Atlántico.'
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'Oceania',
         value: 'Oceania',
-        countries: 27,
+        countries: 14,
         area: '8.526 millones km²',
         img: '../../../assets/images/oceania.jpg',
         description: 'Oceanía es un continente fascinante, siendo Australia, Nueva Zelanda y la Polinesia Francesa los países más conocidos. Cada año, los surfistas de todos los rincones del mundo se reúnen en toda Oceanía por sus condiciones impecables, sus impresionantes islas y su extraordinaria vida marina'
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'Asia',
         value: 'Asia',
-        countries: 50,
+        countries: 46,
         area: '44.58 millones km²',
         img: '../../../assets/images/asia.jpg',
         description: 'Asia es el continente más grande y el que presenta la mayor diversidad de razas, culturas y lenguas del mundo.'
@@ -72,8 +72,13 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.modalTitle = regionParams.regionName;
       this._countriesServices.getCountriesRegion(regionParams.regionValue).subscribe((res) => {
+        console.log(res)
+        let countries : string[] = [];
+        res.forEach(({translations})=>{
+          countries.push(translations['spa'].common)
+        })
+        this.countries = countries.sort();
         this.loading = false;
-        this.countries = res.sort();
       });
     }, 1500);
   }

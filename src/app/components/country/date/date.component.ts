@@ -31,8 +31,10 @@ export class DateComponent implements OnInit {
   }
 
   reloj() {
-    this.hourUTC = Number(this.timezones.length > 1 ? this.timezones[this.timezones.length / 2].slice(3, 6) : this.timezones[0].slice(3, 6));
-    this.minutesUTC = Number(this.timezones.length > 1 ? this.timezones[this.timezones.length / 2].slice(7, 9) : this.timezones[0].slice(7, 9));
+    let a : number = Number((this.timezones.length / 2).toFixed(0))
+    
+    this.hourUTC = Number(this.timezones.length > 1 ? this.timezones[a].slice(3, 6) : this.timezones[0].slice(3, 6));
+    this.minutesUTC = Number(this.timezones.length > 1 ? this.timezones[a].slice(7, 9) : this.timezones[0].slice(7, 9));
     let momentoActual = new Date()
     let hora = momentoActual.getUTCHours() + this.hourUTC ;
     let minuto = momentoActual.getUTCMinutes() + this.minutesUTC;

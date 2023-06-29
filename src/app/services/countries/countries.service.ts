@@ -17,20 +17,19 @@ export class CountriesService {
 
   constructor(@Inject(APP_SERVICE_CONFIG) private config: AppConfig, private http: HttpClient) {}
 
-  getCountriesRegion(region: string): Observable<string[]> {
+  getCountriesRegion(region: string): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.URLREGION}${region}`).pipe(
-      map((paises: Country[]) =>
-        paises.map((pais: Country) => {
-          return pais.name.common;
-        })
+      map((paises: Country[]) =>{
+       return  paises.filter((pais : Country)=> pais.independent === true)
+      }
       )
     );
   }
 
-  getCountry(country: string): Observable<Country> {
+  getCountry(country: string): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.URLCOUNTRY}${country}`).pipe(
-      map(([countryArray]: Country[])=>{
-          return countryArray
+      map((countryArray: Country[])=>{
+           return countryArray.filter((pais : Country)=> pais.independent === true)
       }
       )
     )

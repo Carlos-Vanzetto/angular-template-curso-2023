@@ -11,26 +11,23 @@ import { CountriesService } from 'src/app/services/countries/countries.service';
 export class CountryComponent implements OnInit {
 
   loading = false;
-  country: string;
   flag!: string;
-  name!: string;
+  name: string;
   timezones! : string[];
   
   constructor(private aRoute: ActivatedRoute,
     private _countryService: CountriesService) {
-    this.country = this.aRoute.snapshot.paramMap.get('name')!;
-
+    this.name = this.aRoute.snapshot.paramMap.get('name')!;
   }
 
   ngOnInit(): void {
-    this.getCountry(this.country);
+    this.getCountry(this.name);
   }
 
   getCountry(name: string): void {
     this.loading = true
-    this._countryService.getCountry(name).subscribe(({flag,name,timezones}: Country) => {
+    this._countryService.getCountry(name).subscribe(([{flag,timezones}]) => {
       this.flag = flag;
-      this.name = name.common;
       this.timezones = timezones;
     })
     setTimeout(() => {

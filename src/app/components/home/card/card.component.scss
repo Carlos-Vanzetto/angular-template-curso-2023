@@ -31,13 +31,16 @@
     width: 100%;
 }
 
+.card__description{
+  text-decoration: none;
+}
+
 .card__text{
   display: flex;
   align-items: center;
-  text-align: center;
-  font-weight: 800;
-  height: 250px;
+  font-weight: 500;
 }
+
 
 .card-title {
     text-align: center;
