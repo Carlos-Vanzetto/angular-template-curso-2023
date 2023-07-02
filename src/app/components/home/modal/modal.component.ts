@@ -51,6 +51,7 @@ export class ModalComponent implements OnInit {
   cleanSelect() {
     this.selectCountry.setValue(null);
     this.filter.setValue('');
+    this.allCountries = [];
     this.resize();
   }
   constructor(private _loginService: LoginService, private router: Router) {}
