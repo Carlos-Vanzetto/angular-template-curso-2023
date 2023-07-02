@@ -24,6 +24,7 @@ import { ModalComponent } from './components/home/modal/modal.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { CountryComponent } from './components/country/country.component';
 import { DateComponent } from './components/country/date/date.component';
+import { EarthMapComponent } from './components/earth-map/earth-map.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { DateComponent } from './components/country/date/date.component';
     SpinnerComponent,
     CountryComponent,
     DateComponent,
+    EarthMapComponent,
   ],
   imports: [
     BrowserModule,

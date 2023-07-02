@@ -8,6 +8,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { LoginGuard } from './guards/login.guard';
 import { CountryComponent } from './components/country/country.component';
+import { EarthMapComponent } from './components/earth-map/earth-map.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   // { path: '', component: HomeComponent, canActivate: [LoginGuard] },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'country/:name', component: CountryComponent }, //canActivate: [LoginGuard]},
   { path: 'registration', component: RegistrationFormComponent },
   { path: 'aboutus', component: AboutUsComponent },
+  { path: 'earthmap', component: EarthMapComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];
 

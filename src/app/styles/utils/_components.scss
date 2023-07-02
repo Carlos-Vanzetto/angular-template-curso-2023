@@ -57,16 +57,13 @@
 .link-primary{
   margin-bottom: 15px;
 }
-.login-btn-container{
-  display: flex;
-  justify-content: center;
 
-}
 .form-check-label{
   margin-left: 10px;
 }
 .btn[type="submit"]{
-  width: 100%;
+  width: 300px;
+  margin-left:25px ;
 }
 .btn[type="submit"]:disabled{
   opacity: 0.5;

@@ -41,7 +41,6 @@
             aria-label="Default select example"
             #selectOptions
             [formControl]="selectCountry"
-            (change)="onSelected()"
             (input)="resize()"
           >
             <option *ngFor="let country of countries">{{ country }}</option>
