@@ -1,19 +1,17 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Continent } from 'src/app/models/continents';
+import { CountriesFlag } from 'src/app/models/countriesFlag';
 import { RegionParams } from 'src/app/models/region-params';
 import { CountriesService } from 'src/app/services/countries/countries.service';
-import { faEarthAmerica, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  faEarthAmerica = faEarthAmerica;
-  faMagGlass = faMagnifyingGlass;
   title: string;
   continents: Continent[];
-  countries: string[];
+  countries: CountriesFlag[];
   modalTitle: string;
   loading: boolean;
 
@@ -79,12 +77,25 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.modalTitle = regionParams.regionName;
       this._countriesServices.getCountriesRegion(regionParams.regionValue).subscribe((res) => {
-        console.log(res);
-        let countries: string[] = [];
-        res.forEach(({ translations }) => {
-          countries.push(translations['spa'].common);
+        console.log(res)
+        let countries : CountriesFlag[] = [];
+        res.forEach(({translations, flag})=>{
+          let countryFlag : CountriesFlag = {
+            country: translations['spa'].common,
+            flag: flag
+          }
+          countries.push(countryFlag)
+        })
+        this.countries = countries.sort((a, b) => {
+          if (a.country > b.country) {
+            return 1;
+          }
+          if (a.country < b.country) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
         });
-        this.countries = countries.sort();
         this.loading = false;
       });
     }, 1500);

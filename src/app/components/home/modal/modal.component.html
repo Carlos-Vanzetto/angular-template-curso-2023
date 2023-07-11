@@ -3,7 +3,7 @@
   id="staticBackdrop"
   data-bs-backdrop="static"
   data-bs-focus="true"
-  data-bs-keyboard="true"
+  data-bs-keyboard="false"
   tabindex="-1"
   aria-labelledby="staticBackdropLabel"
   aria-hidden="true"
@@ -41,11 +41,11 @@
             aria-label="Default select example"
             #selectOptions
             [formControl]="selectCountry"
+            (change)="onSelected()"
             (input)="resize()"
-            (focus)="onFocus()"
-            (change)="onChange()"
           >
-            <option *ngFor="let country of countries">{{ country }}</option>
+            <option selected></option>
+            <option *ngFor="let country of countries">{{ country.flag }} {{ country.country }}</option>
           </select>
         </div>
         <div class="modal-footer">
