@@ -19,13 +19,13 @@ export class ModalComponent implements OnInit {
 
   filter = new FormControl('');
   selectCountry = new FormControl('', Validators.required);
-
-  @ViewChild('selectOptions') selectOptions!: any;
+  selectedCountry!: string | null;
 
   onKeyUp(filterText: string | null): void {
     if (filterText === '' || filterText === undefined) {
-      this.filteredSize = 1;
+      this.resize();
       this.countries = this.allCountries;
+
       return;
     }
 
@@ -39,10 +39,24 @@ export class ModalComponent implements OnInit {
       console.log(this.countries);
       console.log(this.selectCountry.value);
     }
-    if (this.countries.length === 1) {
+    this.selectCountry.setValue(null);
+    /*  if (this.countries.length === 1 && filterText != '') {
       this.selectCountry.setValue(this.countries[0]);
       console.log(this.selectCountry.value);
+    } */
+  }
+  onFocus() {
+    console.log('focus');
+    this.selectedCountry = this.countries[0];
+    console.log(this.selectedCountry);
+    if (this.countries.length === 1) {
+      this.selectCountry.setValue(this.countries[0]);
+      console.log('focus', this.selectCountry.value);
     }
+  }
+  onChange() {
+    console.log('change', this.selectCountry.value);
+    this.selectedCountry = this.selectCountry.value;
   }
 
   resize() {
@@ -56,14 +70,17 @@ export class ModalComponent implements OnInit {
   }
   constructor(private _loginService: LoginService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectCountry.setValue(this.countries[0]);
+    console.log(this.selectCountry.value);
+  }
 
   getPais() {
     // if(!this._loginService.isLoggedIn){
     //   this.router.navigate(['/login']);
     //   return
     //  } else {
-    this.router.navigate([`/country/${this.selectCountry.value}`]);
+    this.router.navigate([`/country/${this.selectedCountry}`]);
     this.cleanSelect();
     //  }
   }

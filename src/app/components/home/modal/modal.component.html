@@ -42,6 +42,8 @@
             #selectOptions
             [formControl]="selectCountry"
             (input)="resize()"
+            (focus)="onFocus()"
+            (change)="onChange()"
           >
             <option *ngFor="let country of countries">{{ country }}</option>
           </select>
