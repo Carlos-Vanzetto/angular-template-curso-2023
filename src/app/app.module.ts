@@ -25,6 +25,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { CountryComponent } from './components/country/country.component';
 import { DateComponent } from './components/country/date/date.component';
 import { EarthMapComponent } from './components/earth-map/earth-map.component';
+import { NewsComponent } from './components/country/news/news.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { EarthMapComponent } from './components/earth-map/earth-map.component';
     CountryComponent,
     DateComponent,
     EarthMapComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,

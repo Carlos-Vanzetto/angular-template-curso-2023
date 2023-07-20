@@ -25,7 +25,7 @@ export class CountriesService {
 
   getCountry(country: string): Observable<Country[]> {
     let URL: string;
-    if (country.length === 2 && country.toUpperCase() === country) {
+    if ((country.length === 2 && country.toUpperCase() === country) || country.length === 3 ) {
       URL = `${this.URLCOUNTRY}alpha/${country}`;
     } else {
       URL = `${this.URLCOUNTRY}translation/${country}`;

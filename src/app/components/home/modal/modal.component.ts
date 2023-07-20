@@ -34,7 +34,6 @@ export class ModalComponent implements OnInit {
       this.allCountries = [...this.countries]; // store all countries before filtering
     }
 
-
     if (filterText != null) {
       this.countries = this.allCountries.filter((a) => a.country.toLowerCase().includes(filterText));
       this.filteredSize = this.countries.length;
@@ -42,14 +41,17 @@ export class ModalComponent implements OnInit {
 
     this.selectCountry.setValue(null)
   }
+
   onSelected() {
     console.log(this.selectCountry.value);
-    this.selectedCountry = this.selectCountry.value?.slice(5);
+    this.selectedCountry = this.selectCountry.value;
     console.log(this.selectedCountry)
   }
+
   resize() {
     this.filteredSize = 1;
   }
+
   cleanSelect() {
     this.allCountries = [];
     this.filteredSize = 1;
@@ -63,6 +65,7 @@ export class ModalComponent implements OnInit {
        console.log(this.selectCountry.value);
        }
   }
+  
   constructor(private _loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {

@@ -1,54 +1,140 @@
 <div class="container-fluid">
-    <div class="spinner" *ngIf="loading">
-        <app-spinner></app-spinner>
-        <app-spinner></app-spinner>
+  <div class="spinner" *ngIf="loading">
+    <app-spinner></app-spinner>
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="!loading">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <h1 class="title">{{title | uppercase}}</h1>
+      </div>
     </div>
-    <div *ngIf="!loading">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 text-center">
-                <h1 class="title">{{title | uppercase}}</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <app-date [timezones]="timezones"></app-date>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 offset-lg-1 text-center">
-                <img [src]="flag" alt="" class="flag">
-            </div>
-            <div class="col-lg-4 ">
-                
-                    
-                    <h2>NAMES</h2>
-                <table class="table table-bordered">
-                    <tbody class="table-group-divider">
-                      <tr>
-                        <th scope="row">Common</th>
-                        <td>{{country.name.common}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Official</th>
-                        <td>{{country.name.official}}</td>
-                      </tr>
-                      <tr *ngFor="let nativeKey of nativeNameKey, index as i" >
-                        <th scope="row" >Common (Native) {{nativeKey}}</th>
-                        <td>{{nativeNameValue[i].common}}</td>
-                      </tr>
-                      <tr *ngFor="let nativeKey of nativeNameKey, index as i" >
-                        <th scope="row" >Official (Native) {{nativeKey}}</th>
-                        <td>{{nativeNameValue[i].official}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </div>
-        <!-- <div class="col-lg-4 offset-lg-1">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25596424.265591823!2d-63.5988853!3d-38.451550000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaf5f5fdc667%3A0x3d2f77992af00fa8!2sArgentina!5e0!3m2!1ses-419!2sar!4v1687303686690!5m2!1ses-419!2sar"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div> -->
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <app-date [timezones]="timezones"></app-date>
+      </div>
     </div>
+    <div class="row mt-5">
+      <div class="col-lg-4 offset-lg-1 text-center align-self-center">
+        <img [src]="flag" alt="" class="flag">
+      </div>
+      <div class="col-lg-4 offset-lg-2  table__names">
+
+        <h2>NAMES</h2>
+        <table class="table table-bordered">
+          <tbody class="table-group-divider">
+            <tr>
+              <th scope="row">Common</th>
+              <td>{{country.name.common}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Official</th>
+              <td>{{country.name.official}}</td>
+            </tr>
+            <tr *ngFor="let nativeKey of nativeNameKey, index as i">
+              <th scope="row">Common (Native) {{nativeKey}}</th>
+              <td>{{nativeNameValue[i].common}}</td>
+            </tr>
+            <tr *ngFor="let nativeKey of nativeNameKey, index as i">
+              <th scope="row">Official (Native) {{nativeKey}}</th>
+              <td>{{nativeNameValue[i].official}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="row mt-5">
+          <div class="col-lg-3 ">
+            <h2>CODES</h2>
+            <table class="table table-bordered">
+              <tbody class="table-group-divider">
+                <tr>
+                  <th scope="row">ISO 3166-1 alpha-2</th>
+                  <td>{{country.cca2}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">ISO 3166-1 alpha-3</th>
+                  <td>{{country.cca3}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">ISO 3166-1 numeric</th>
+                  <td>{{country.ccn3}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">International calling code</th>
+                  <td>{{country.idd.root + country.idd.suffixes[0]}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">ISO 4217 currency code</th>
+                  <td>{{country.idd.root + country.idd.suffixes[0]}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Top level domains</th>
+                  <td>{{tld}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-3 ms-auto">
+            <h2>GEOGRAPHY</h2>
+            <table class="table table-bordered">
+              <tbody class="table-group-divider">
+                <tr>
+                  <th scope="row">Region</th>
+                  <td>{{country.region}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Subregion</th>
+                  <td>{{country.subregion}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Capital</th>
+                  <td>{{capital}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Demonym</th>
+                  <td>{{country.demonyms.eng.m}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Lat/Lng</th>
+                  <td><a href="https://www.openstreetmap.org/#map=5/{{laglng[0]}}/{{laglng[1]}}" target="_blank">{{laglng[0]}}, {{laglng[1]}}</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">Area</th>
+                  <td>{{country.area}}km²</td>
+                </tr>
+                <tr *ngIf="borders">
+                  <th scope="row">Land borders</th>
+                  <td><a *ngFor="let border of borders" href="http://localhost:4200/country/{{border}}"><span>{{border}}
+                      </span></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-3 ms-auto">
+            <h2>LANGUAGE</h2>
+            <table class="table table-bordered">
+              <tbody class="table-group-divider">
+                <tr>
+                  <th scope="row">Native language</th>
+                  <td>{{country.name.common}}</td>
+                </tr>
+                <tr>
+                  <th scope="row" colspan="2">Languages</th>
+                </tr>
+                <tr *ngFor="let language of languagesKey, index as i">
+                  <th scope="row"> {{language | uppercase}}</th>
+                  <td>{{languagesValue[i]}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-news [cca2]="country.cca2"></app-news>
+  </div>
 </div>

@@ -79,10 +79,10 @@ export class HomeComponent implements OnInit {
       this._countriesServices.getCountriesRegion(regionParams.regionValue).subscribe((res) => {
         console.log(res)
         let countries : CountriesFlag[] = [];
-        res.forEach(({translations, flag})=>{
+        res.forEach(({translations, flags})=>{
           let countryFlag : CountriesFlag = {
             country: translations['spa'].common,
-            flag: flag
+            flag: flags.svg
           }
           countries.push(countryFlag)
         })

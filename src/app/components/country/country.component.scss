@@ -1,4 +1,8 @@
 
+a{
+    text-decoration: none;
+}
+
 .spinner{
     display: flex;
     justify-content:space-around;
@@ -11,11 +15,15 @@
 }
 
 .flag{
-    width: 450px;
-    margin-top: 15%;
+    width: 350px;
+    align-self: center;
 }
 
 table{ 
     color: white;
     border: white;
+}
+
+.table__names{
+    align-self: center;
 }

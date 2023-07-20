@@ -45,8 +45,8 @@
             (input)="resize()"
             (focus)="onFocus()"
           >
-            <option selected></option>
-            <option *ngFor="let country of countries">{{country.flag}}  {{ country.country }}</option>
+            <option selected label="Select a country..."></option>
+            <option *ngFor="let country of countries"  >{{ country.country }}</option>
           </select>
         </div>
         <div class="modal-footer">
@@ -56,7 +56,7 @@
             data-bs-dismiss="modal"
             [disabled]="selectCountry.invalid"
             [ngClass]="selectCountry.invalid ? 'btn-secondary' : 'btn-primary'"
-            (click)="getPais()"
+            [routerLink]="['/country', selectedCountry]"
           >
             ACCEPT
           </button>
