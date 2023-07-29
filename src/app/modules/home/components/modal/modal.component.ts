@@ -4,6 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { __values } from 'tslib';
 import { LoginService } from 'src/app/core/services/login/login.service';
 import { CountriesFlag } from 'src/app/modules/home/interfaces/countriesFlag.interface';
+import { BlobOptions } from 'buffer';
 
 @Component({
   selector: 'home-modal',
@@ -21,11 +22,12 @@ export class ModalComponent implements OnInit {
   filter = new FormControl('');
   selectCountry = new FormControl('', Validators.required);
   selectedCountry!: string | null | undefined;
+  notCountry : Boolean = false;
   @ViewChild('selectOptions') selectOptions!: any;
 
   onKeyUp(filterText: string | null): void {
     if (filterText === '' || filterText === undefined) {
-      this.filteredSize = 1;
+      this.filteredSize = 2;
       this.countries = this.allCountries;
       return;
     }
@@ -36,7 +38,13 @@ export class ModalComponent implements OnInit {
 
     if (filterText != null) {
       this.countries = this.allCountries.filter((a) => a.country.toLowerCase().includes(filterText));
-      this.filteredSize = this.countries.length;
+      this.filteredSize = this.countries.length + 1 ;
+
+      if(this.countries.length === 0){
+        this.notCountry = true; 
+      } else { 
+        this.notCountry = false;
+      }
     }
 
     this.selectCountry.setValue(null)

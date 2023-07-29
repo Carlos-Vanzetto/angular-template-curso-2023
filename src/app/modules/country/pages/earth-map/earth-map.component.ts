@@ -16,7 +16,7 @@ export class EarthMapComponent implements OnInit {
   selectCountry(event: any) {
     console.log(event['srcElement'].id);
     const cca2 = event['srcElement'].id;
-    this.router.navigate([`/country/${cca2}`]);
+    this.router.navigate([`/countries/by/${cca2}`]);
   }
   ngOnInit(): void {}
 }
