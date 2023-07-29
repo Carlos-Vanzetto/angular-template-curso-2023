@@ -29,6 +29,7 @@ export class ModalComponent implements OnInit {
     if (filterText === '' || filterText === undefined) {
       this.filteredSize = 2;
       this.countries = this.allCountries;
+
       return;
     }
 
@@ -47,7 +48,7 @@ export class ModalComponent implements OnInit {
       }
     }
 
-    this.selectCountry.setValue(null)
+    this.selectCountry.setValue(null);
   }
 
   onSelected() {
@@ -67,11 +68,11 @@ export class ModalComponent implements OnInit {
     this.filter.setValue('');
   }
 
-  onFocus(){
+  onFocus() {
     if (this.countries.length === 1) {
       this.selectCountry.setValue(this.countries[0].country);
-       console.log(this.selectCountry.value);
-       }
+      console.log(this.selectCountry.value);
+    }
   }
   
   constructor(private _loginService: LoginService, private router: Router) {}
