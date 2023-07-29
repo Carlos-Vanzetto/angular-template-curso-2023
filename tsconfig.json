@@ -25,7 +25,7 @@
 			"@shared/services": ["src/app/services/index.ts"],
 			"@shared/modules": ["src/app/shared/modules/index.ts"],
 			"@shared/models": ["src/app/models/index.ts"],
-			"@shared/guards": ["src/app/guards/index.ts"],
+			"@shared/guards": ["src/app/user/guards/index.ts"],
 			"@shared/pipes": ["src/app/shared/pipes/index.ts"],
 			"@shared/directives": ["src/app/shared/directives/index.ts"],
 			"@shared/resolvers": ["src/app/shared/resolvers/index.ts"],

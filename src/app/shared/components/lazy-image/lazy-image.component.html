@@ -1,0 +1,16 @@
+<img 
+    [src]="url"
+    alt="..."
+    style="width: 100%; height: 250px;" 
+    class="card-img-top animate__animated animate__fadeIn"
+    (load)="onLoad()"
+    [ngStyle]="{display : hasLoaded ? '' : 'none'}"
+>
+
+<div 
+    *ngIf="!hasLoaded"
+    class="d-flex justify-content-center align-items-center"
+    style="height: 250px;"
+>
+<app-spinner ></app-spinner>
+</div>

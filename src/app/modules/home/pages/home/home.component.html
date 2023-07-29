@@ -1,0 +1,14 @@
+<div>
+  <div class="container px-4 text-center">
+    <app-icon class="d-flex justify-content-center"></app-icon>
+    <h1>VANZERON</h1>
+    <h1 class="fw-bolder h1-animate mt-2">{{ title }}</h1>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 m-4">
+    <div class="col" *ngFor="let continent of continents">
+      <home-card [continent]="continent" (selectedParams)="getCountries($event)"></home-card>
+    </div>
+  </div>
+</div>
+<home-modal [countries]="countries" [modalTitle]="modalTitle" [loading]="loading"></home-modal>

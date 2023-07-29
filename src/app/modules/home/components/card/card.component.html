@@ -1,0 +1,33 @@
+<div class="card fade-in ">
+  <div class="card-header">
+    <h5 class="card-title">{{ continent.name | uppercase}}</h5>
+  </div>
+  <img [src]="continent.img" class="card-img-top card__img" alt="..." />
+  <div class="card-body">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <a class="accordion-button collapsed card__description" type="button" data-bs-toggle="collapse"
+            href="#{{continent.name}}" aria-expanded="false">
+            Descripción...
+          </a>
+        </h2>
+        <div [id]="continent.name" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body card__text">
+            {{continent.description}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush card__ul">
+    <li class="list-group-item card__li"><b>Países: </b>{{ continent.countries }}</li>
+    <li class="list-group-item card__li"><b>Area:</b> {{ continent.area }}</li>
+  </ul>
+  <div class="card-footer mb-2">
+    <button type="button" class="btn btn-primary card__button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+      (click)="getContinent(continent.value, continent.name)">
+      VER PAÍSES
+    </button>
+  </div>
+</div>

@@ -1,23 +1,35 @@
 // Angular Imports
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LogInComponent } from './components/log-in/log-in.component';
-import { HomeComponent } from './components/home/home.component';
-import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
-import { LoginGuard } from './guards/login.guard';
-import { CountryComponent } from './components/country/country.component';
-import { EarthMapComponent } from './components/earth-map/earth-map.component';
+
+
+import { HomeComponent } from './modules/home/pages/home/home.component';
+import { LoginGuard } from './core/guards/login.guard';
+
+
+
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  // { path: '', component: HomeComponent, canActivate: [LoginGuard] },
-  { path: 'login', component: LogInComponent },
-  { path: 'country/:name', component: CountryComponent }, //canActivate: [LoginGuard]},
-  { path: 'registration', component: RegistrationFormComponent },
-  { path: 'aboutus', component: AboutUsComponent },
-  { path: 'earthmap', component: EarthMapComponent },
-  { path: '**', component: NotFoundComponent, pathMatch: 'full' },
+  { 
+    path: '',
+    component: HomeComponent
+  },
+  { 
+    path: 'auth', 
+    loadChildren: ()=> import('./modules/auth/auth.module').then(m=> m.AuthModule)
+  },
+  { 
+    path: 'countries',
+    loadChildren: ()=> import('./modules/country/country.module').then(m => m.CountryModule)
+  }, //canActivate: [LoginGuard]},
+  { 
+    path: 'aboutus', 
+    loadChildren: ()=> import('./modules/about/about.module').then(m=>m.AboutModule)
+  },
+  { 
+    path: '**',
+    loadChildren: ()=>import('./modules/not-found/not-found.module').then(m=>m.NotFundModule),
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
