@@ -1,0 +1,16 @@
+<h2>LANGUAGE</h2>
+<table class="table table-bordered">
+    <tbody class="table-group-divider">
+        <tr>
+            <th scope="row">Native language</th>
+            <td>{{country.name.common}}</td>
+        </tr>
+        <tr>
+            <th scope="row" colspan="2">Languages</th>
+        </tr>
+        <tr *ngFor="let language of languagesKey, index as i">
+            <th scope="row"> {{language | uppercase}}</th>
+            <td>{{languagesValue[i]}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -15,6 +15,7 @@ import { APP_CONFIG, APP_SERVICE_CONFIG } from './appConfig/appconfig.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/home.module';
 
+
 @NgModule({
   declarations: [
     AppComponent

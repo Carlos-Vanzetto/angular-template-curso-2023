@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AppRoutingModule } from '../app-routing.module';
+
 
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { IconComponent } from './components/icon/icon.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LazyImageComponent } from './components/lazy-image/lazy-image.component';
-import { AuthModule } from '../modules/auth/auth.module';
 import { RouterModule } from '@angular/router';
+import { ButtonAuthComponent } from './components/button-auth/button-auth.component';
 
 
 
@@ -19,19 +19,23 @@ import { RouterModule } from '@angular/router';
     IconComponent,
     NavbarComponent,
     FooterComponent,
-    LazyImageComponent
+    LazyImageComponent,
+    ButtonAuthComponent
+    
   ],
   exports:[
     SpinnerComponent,
     IconComponent,
     NavbarComponent,
     FooterComponent,
-    LazyImageComponent
+    LazyImageComponent,
+    ButtonAuthComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
-    RouterModule
+    RouterModule,
+    
   ]
 })
 export class SharedModule { }

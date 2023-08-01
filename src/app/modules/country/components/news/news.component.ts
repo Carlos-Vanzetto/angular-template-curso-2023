@@ -1,17 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Article } from 'src/app/modules/country/interfaces/new.interface';
 import { NewsService } from 'src/app/core/services/new/news.service';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent implements OnInit,OnChanges {
   
   @Input() 
 
-  cca2! :         string;
+  country! :      Country;
 
   articles! :     Article[];
 
@@ -26,9 +27,14 @@ export class NewsComponent implements OnInit {
 
 
   constructor( private _newsService : NewsService ) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.loading = true
+    this.getNews(this.country.cca2.toLocaleUpperCase(), this.currentPage);
+  }
 
   ngOnInit(): void {
-    this.getNews(this.cca2.toLocaleUpperCase(), this.currentPage);
+    this.loading = true
+    this.getNews(this.country.cca2.toLocaleUpperCase(), this.currentPage);
   }
   
 
@@ -52,13 +58,13 @@ export class NewsComponent implements OnInit {
   previousPage(){
     this.currentPage--;
     this.loading = true;
-    this.getNews(this.cca2.toLocaleUpperCase(), this.currentPage);
+    this.getNews(this.country.cca2.toLocaleUpperCase(), this.currentPage);
   }
 
   nextPage(){
     this.currentPage++;
     this.loading = true;
-    this.getNews(this.cca2.toLocaleUpperCase(), this.currentPage);
+    this.getNews(this.country.cca2.toLocaleUpperCase(), this.currentPage);
   }
 
   previousPageClass(){

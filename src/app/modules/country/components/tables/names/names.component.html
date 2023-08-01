@@ -1,0 +1,21 @@
+<h2>NAMES</h2>
+<table class="table table-bordered">
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">Common</th>
+      <td>{{country.name.common}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Official</th>
+      <td>{{country.name.official}}</td>
+    </tr>
+    <tr *ngFor="let nativeKey of nativeNameKey, index as i">
+      <th scope="row">Common (Native) {{nativeKey}}</th>
+      <td>{{nativeNameValue[i].common}}</td>
+    </tr>
+    <tr *ngFor="let nativeKey of nativeNameKey, index as i">
+      <th scope="row">Official (Native) {{nativeKey}}</th>
+      <td>{{nativeNameValue[i].official}}</td>
+    </tr>
+  </tbody>
+</table>

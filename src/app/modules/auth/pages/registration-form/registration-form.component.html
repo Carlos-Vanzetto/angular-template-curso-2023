@@ -46,7 +46,6 @@
               type="email"
               class="form-control"
               id="email"
-              aria-describedby="emailHelp"
               placeholder="Enter email"
               [ngClass]="[
                 email?.invalid && (email?.touched || email?.dirty) ? 'is-invalid' : '',
@@ -142,14 +141,7 @@
       </div>
 
       <div class="d-flex justify-content-center">
-        <button
-          type="submit"
-          class="btn btn-primary btn-lg btn-block"
-          [disabled]="registrationForm.invalid"
-          [ngClass]="registrationForm.invalid ? 'btn-secondary' : null"
-        >
-          Register
-        </button>
+        <shared-button-auth [formInvalid]="registrationForm.invalid" [title]="'REGISTER'"></shared-button-auth>
       </div>
     </div>
   </form>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
+import { Observable, throwError, of } from 'rxjs';
+import { catchError, delay, retry } from 'rxjs/operators';
+import { map} from 'rxjs/operators';
 import { Country } from 'src/app/modules/country/interfaces/country.interface';
 import { environment } from '@environment';
 @Injectable({
@@ -16,13 +16,11 @@ export class CountriesService {
 
   getCountriesRegion(region: string): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.URLREGION}${region}`).pipe(
-      map( paises => {
-        return paises.filter((pais: Country) => pais.independent === true);
-      })
+      map( countries =>  countries.filter((pais: Country) => pais.independent === true))
     );
   }
 
-  getCountry(country: string): Observable<Country[]> {
+  getCountry(country: string): Observable< Country | null > {
     let URL: string;
     if ((country.length === 2 && country.toUpperCase() === country) || country.length === 3 ) {
       URL = `${this.URLCOUNTRY}alpha/${country}`;
@@ -31,9 +29,10 @@ export class CountriesService {
     }
 
     return this.http.get<Country[]>(URL).pipe(
-      map( countryArray => {
-        return countryArray.filter((pais: Country) => pais.independent === true);
-      })
+      map( countries => countries.filter((pais: Country) => pais.independent === true)),
+      map( countries => countries.length > 0 ? countries[0] : null),
+      catchError( ()=> of(null) ),
+      delay (1500)
     );
   }
 }

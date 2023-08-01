@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   loading: boolean;
 
   constructor(private _countriesServices: CountriesService) {
-    this.title = 'Descubre los datos de los países mas significativos de cada región';
+    this.title = 'Discover the data of any country in the world';
     this.continents = [
       {
         name: 'America',

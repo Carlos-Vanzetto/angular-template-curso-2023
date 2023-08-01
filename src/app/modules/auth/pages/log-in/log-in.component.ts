@@ -46,6 +46,8 @@ export class LogInComponent implements OnInit {
   get checkOut() {
     return this.loginForm.get('checkOut');
   }
+
+  
   submit(email: string, password: string) {
     const validLogin = this.loginService.login(email, password);
     if (validLogin) {

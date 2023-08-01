@@ -1,0 +1,29 @@
+<h2>CODES</h2>
+            <table class="table table-bordered">
+              <tbody class="table-group-divider">
+                <tr>
+                  <th scope="row">ISO 3166-1 alpha-2</th>
+                  <td>{{country.cca2}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">ISO 3166-1 alpha-3</th>
+                  <td>{{country.cca3}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">ISO 3166-1 numeric</th>
+                  <td>{{country.ccn3}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">International calling code</th>
+                  <td>{{country.idd.root + country.idd.suffixes[0]}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">ISO 4217 currency code</th>
+                  <td>{{country.idd.root + country.idd.suffixes[0]}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Top level domains</th>
+                  <td>{{country.tld}}</td>
+                </tr>
+              </tbody>
+            </table>

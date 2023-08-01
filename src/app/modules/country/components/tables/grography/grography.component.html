@@ -1,0 +1,34 @@
+<h2>GEOGRAPHY</h2>
+<table class="table table-bordered">
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">Region</th>
+      <td>{{country.region}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Subregion</th>
+      <td>{{country.subregion}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Capital</th>
+      <td>{{country.capital}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Demonym</th>
+      <td>{{country.demonyms.eng.m}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Lat/Lng</th>
+      <td><a href="https://www.openstreetmap.org/#map=5/{{country.latlng[0]}}/{{country.latlng[1]}}" target="_blank">{{country.latlng[0]}}, {{country.latlng[1]}}</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Area</th>
+      <td>{{country.area}}km²</td>
+    </tr>
+    <tr *ngIf="country.borders">
+      <th scope="row">Land borders</th>
+      <td><a *ngFor="let border of country.borders" [routerLink]="['/countries/by', border]"><span>{{border}}
+          </span></a></td>
+    </tr>
+  </tbody>
+</table>

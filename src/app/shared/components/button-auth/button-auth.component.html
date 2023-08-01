@@ -1,0 +1,7 @@
+<button 
+    type="submit" 
+    class="btn btn-primary btn-lg btn-block" 
+    [disabled]="formInvalid"
+    [ngClass]="formInvalid ? 'btn-secondary' : null">
+    {{title}}
+</button>

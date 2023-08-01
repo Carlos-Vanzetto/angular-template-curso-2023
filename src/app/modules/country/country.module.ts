@@ -15,6 +15,10 @@ import { EarthMapComponent } from './pages/earth-map/earth-map.component';
 import { CardComponent } from './components/card/card.component';
 import { NotNewsComponent } from './components/not-news/not-news.component';
 import { CountryRoutingModule } from './country-routing.module';
+import { CodesComponent } from './components/tables/codes/codes.component';
+import { NamesComponent } from './components/tables/names/names.component';
+import { GrographyComponent } from './components/tables/grography/grography.component';
+import { LanguagesComponent } from './components/tables/languages/languages.component';
 
 
 
@@ -26,7 +30,11 @@ import { CountryRoutingModule } from './country-routing.module';
     NewsComponent,
     EarthMapComponent,
     CardComponent,
-    NotNewsComponent
+    NotNewsComponent,
+    CodesComponent,
+    NamesComponent,
+    GrographyComponent,
+    LanguagesComponent
   ],
   imports: [
     CommonModule,

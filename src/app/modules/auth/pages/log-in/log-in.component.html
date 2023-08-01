@@ -17,7 +17,6 @@
               type="email"
               class="form-control"
               id="floatingInput"
-              aria-describedby="emailHelp"
               placeholder="Enter email"
               [ngClass]="[
                 email?.invalid && (email?.touched || email?.dirty) ? 'is-invalid' : '',
@@ -69,27 +68,11 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <a class="link-light" href="">Forgot your password?</a>
-        <p>Don't have an account? <a class="link-light" [routerLink]="['/registration']">Register here</a></p>
+        <p>Don't have an account? <a class="link-light" [routerLink]="['/auth/register']">Register here</a></p>
       </div>
       <div class="d-flex justify-content-center">
-        <button
-          type="submit"
-          class="btn btn-primary btn-lg btn-block"
-          [disabled]="loginForm.invalid"
-          [ngClass]="loginForm.invalid ? 'btn-secondary' : null"
-        >
-          Submit
-        </button>
+        <shared-button-auth [formInvalid]="loginForm.invalid" [title]="'SUBMIT'"></shared-button-auth>
       </div>
     </div>
   </form>
 </div>
-<!--  
-  Para ver dinamicamente los valores sin entrar a consola
-
-<div>{{ email?.value | json }}</div>
-  <div>{{ password?.value | json }}</div>
-  <pre>email valid: {{ email?.valid }}</pre>
-  <pre>password valid: {{ password?.valid }}</pre> 
-
--->

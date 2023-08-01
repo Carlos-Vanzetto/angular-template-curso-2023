@@ -19,8 +19,9 @@ const routes: Routes = [
   },
   { 
     path: 'countries',
-    loadChildren: ()=> import('./modules/country/country.module').then(m => m.CountryModule)
-  }, //canActivate: [LoginGuard]},
+    loadChildren: ()=> import('./modules/country/country.module').then(m => m.CountryModule),
+    canActivate: [LoginGuard]
+  },
   { 
     path: 'aboutus', 
     loadChildren: ()=> import('./modules/about/about.module').then(m=>m.AboutModule)

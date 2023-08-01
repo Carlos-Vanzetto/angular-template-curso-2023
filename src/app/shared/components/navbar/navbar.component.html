@@ -23,14 +23,19 @@
 
         <li class="nav-item">
           <a class="nav-link text-light" 
-           [routerLink]="['/countries/eart']" ><fa-icon [icon]="faEarthAmerica" class="formIcon"  ></fa-icon> Buscar por mapa</a
+           [routerLink]="['/countries/eart']" ><fa-icon [icon]="faEarthAmerica" class="formIcon me-2"  ></fa-icon>Search by map</a
           >
         </li>
       </ul>
+      <div *ngIf="isLogged;else login" >
+        <span class="me-4">{{emailLogged}}</span>
+        <button class="btn btn-outline-light" [routerLink]="['/']" (click)="onLogout()"> Logout</button>
+      </div>
 
+      <ng-template #login>
       <button class="btn btn-outline-light" [routerLink]="['/auth/login']"> Login</button>
-
       <button class="btn btn-outline-light ms-4" [routerLink]="['/auth/register']"> Register</button>
+      </ng-template>
     </div>
   </div>
 </nav>
