@@ -34,22 +34,19 @@ export class NewsComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-    
+    this.loading = true
     this.getNews(this.country.cca2.toLocaleUpperCase(), this.currentPage);
-  
+
   }
   
 
   getNews(country : string, page : number) {
     this._newsService.getNews(country, page).subscribe({
       next : ({articles, totalResults})=>{
-      this.loading = true
       this.articles = articles;
       this.totalResults = totalResults;
       this.totalPages = Math.ceil(totalResults / 4)
-      setTimeout(()=>{
-       this.loading = false 
-      }, 2000)
+      this.loading = false 
       
       console.log(this.articles)
     }, error: (error) => {

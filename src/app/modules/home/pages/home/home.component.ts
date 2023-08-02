@@ -24,13 +24,13 @@ export class HomeComponent implements OnInit {
     this.title = 'Discover the data of any country in the world';
     this.continents = [
       {
-        name: 'America',
+        name: 'Americas',
         value: 'Americas',
         countries: 35,
         area: '42.55 millones km²',
         img: '../../../assets/images/america.jpg',
         description:
-          'América es un amplio continente que se extiende en el sentido de los meridianos, y además, tiene un largo desarrollo latitudinal. América es la segunda masa de tierra más grande del planeta, luego de Asia.',
+          'America is a vast continent that extends in the direction of the meridians, and also has a long latitudinal development.',
       },
       {
         name: 'Africa',
@@ -39,16 +39,16 @@ export class HomeComponent implements OnInit {
         area: '30.37 millones km²',
         img: '../../../assets/images/africa.jpg',
         description:
-          'África es el tercer continente más grande del planeta y su nombre corresponde a la palabra que usaban los antiguos romanos para referirse a todos los países al sur del Mediterráneo (Afri). Mucho antes, hace 300 000 años, de África surgió el Homo sapiens desde donde se expandió por todo el mundo.',
+          'Africa is the third largest continent on the planet and its name corresponds to the word used by the ancient Romans to refer to all the countries south of the Mediterranean (Afri).',
       },
       {
-        name: 'Europa',
+        name: 'Europe',
         value: 'Europe',
         countries: 45,
         area: '10.53 millones km²',
         img: '../../../assets/images/europa.jpg',
         description:
-          'Europa es uno de los seis continentes del mundo y el quinto más extenso. Limita al norte con el océano Ártico, al sur con el mar Mediterráneo, el mar Negro y el mar Caspio, al este con los montes Urales y al oeste con el océano Atlántico.',
+          'Europe is one of the six continents in the world and the fifth largest. It is bordered to the north by the Arctic Ocean, to the south by the Mediterranean Sea, the Black Sea and the Caspian Sea, to the east by the Ural Mountains and to the west by the Atlantic Ocean.',
       },
       {
         name: 'Oceania',
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
         area: '8.526 millones km²',
         img: '../../../assets/images/oceania.jpg',
         description:
-          'Oceanía es un continente fascinante, siendo Australia, Nueva Zelanda y la Polinesia Francesa los países más conocidos. Cada año, los surfistas de todos los rincones del mundo se reúnen en toda Oceanía por sus condiciones impecables, sus impresionantes islas y su extraordinaria vida marina',
+          'Oceania is a fascinating continent, with Australia, New Zealand and French Polynesia being the best known countries.',
       },
       {
         name: 'Asia',
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
         area: '44.58 millones km²',
         img: '../../../assets/images/asia.jpg',
         description:
-          'Asia es el continente más grande y el que presenta la mayor diversidad de razas, culturas y lenguas del mundo.',
+          'Asia is the largest continent and the one with the greatest diversity of races, cultures and languages ​​in the world.',
       },
     ];
     this.countries = [];
