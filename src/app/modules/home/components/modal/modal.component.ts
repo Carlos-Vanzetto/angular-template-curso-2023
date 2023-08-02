@@ -12,11 +12,11 @@ import { BlobOptions } from 'buffer';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
-  @Input() countries!: CountriesFlag[];
+  @Input() countries!: string[];
   @Input() modalTitle!: string;
   @Input() loading!: boolean;
 
-  allCountries: CountriesFlag[] = [];
+  allCountries: string[] = [];
   filteredSize!: number;
 
   filter = new FormControl('');
@@ -38,7 +38,7 @@ export class ModalComponent implements OnInit {
     }
 
     if (filterText != null) {
-      this.countries = this.allCountries.filter((a) => a.country.toLowerCase().includes(filterText));
+      this.countries = this.allCountries.filter((a) => a.toLowerCase().includes(filterText));
       this.filteredSize = this.countries.length + 1 ;
 
       if(this.countries.length === 0){
@@ -70,7 +70,7 @@ export class ModalComponent implements OnInit {
 
   onFocus() {
     if (this.countries.length === 1) {
-      this.selectCountry.setValue(this.countries[0].country);
+      this.selectCountry.setValue(this.countries[0]);
       console.log(this.selectCountry.value);
     }
   }
@@ -81,13 +81,5 @@ export class ModalComponent implements OnInit {
     this.selectCountry.valueChanges.subscribe(() => console.log(this.selectedCountry));
   }
 
-  getPais() {
-    // if(!this._loginService.isLoggedIn){
-    //   this.router.navigate(['/login']);
-    //   return
-    //  } else {
-    this.router.navigate([`/country/${this.selectedCountry}`]);
-    this.cleanSelect();
-    //  }
-  }
+  
 }

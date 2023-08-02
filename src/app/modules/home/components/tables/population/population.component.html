@@ -1,0 +1,23 @@
+
+<app-spinner *ngIf="topTenPopulation === undefined; else table"></app-spinner>
+<ng-template #table>
+<h2 class="text-center">TOP 10: Population</h2>
+<table class="table">
+    <thead>
+        <tr>
+        <th>#</th>
+        <th>Flag</th>
+        <th>Name</th>
+        <th>Area</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <tr *ngFor="let country of topTenPopulation; let i = index">
+            <td>{{i + 1}}</td>
+            <td><img [src]="country.flags.svg" alt="" style="width: 25px;"></td>  
+            <td class='name' [routerLink]="['/countries/by', country.name.common]">{{country.name.common}}</td>  
+            <td>{{country.population | number}}</td>  
+        </tr>
+    </tbody>
+</table>
+</ng-template>

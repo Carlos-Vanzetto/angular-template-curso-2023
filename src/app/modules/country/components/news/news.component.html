@@ -1,6 +1,6 @@
 <h1 class="text-center mt-5">NEWS</h1>
 <app-spinner *ngIf="loading" class="mt-5 d-flex justify-content-center"></app-spinner>
-<country-not-news *ngIf="totalResults === 0 && !loading"></country-not-news>
+<country-not-news *ngIf="(totalResults === 0 && !loading) || error"></country-not-news>
 <div  class="row mt-5">
   <div class="col-lg-10 m-auto" *ngIf="totalResults > 0 && !loading">
     <div class="row row-cols-1 row-cols-xxl-4  row-cols-md-2 g-4">

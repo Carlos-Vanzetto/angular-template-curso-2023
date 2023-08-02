@@ -14,9 +14,16 @@ export class CountriesService {
 
   constructor(private http: HttpClient) {}
 
+  getCountries(): Observable<Country[]> {
+    return this.http.get<Country[]>(`${this.URLCOUNTRY}all`).pipe(
+      map( countries =>  countries.filter((country: Country) => country.independent === true)),
+      catchError( ()=> of([]) )
+    );
+  }
+
   getCountriesRegion(region: string): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.URLREGION}${region}`).pipe(
-      map( countries =>  countries.filter((pais: Country) => pais.independent === true))
+      map( countries =>  countries.filter((country: Country) => country.independent === true))
     );
   }
 
@@ -25,14 +32,13 @@ export class CountriesService {
     if ((country.length === 2 && country.toUpperCase() === country) || country.length === 3 ) {
       URL = `${this.URLCOUNTRY}alpha/${country}`;
     } else {
-      URL = `${this.URLCOUNTRY}translation/${country}`;
+      URL = `${this.URLCOUNTRY}name/${country}`;
     }
 
     return this.http.get<Country[]>(URL).pipe(
       map( countries => countries.filter((pais: Country) => pais.independent === true)),
       map( countries => countries.length > 0 ? countries[0] : null),
-      catchError( ()=> of(null) ),
-      delay (1500)
+      catchError( ()=> of(null) )
     );
   }
 }

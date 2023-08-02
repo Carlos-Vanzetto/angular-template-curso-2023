@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './components/card/card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { PopulationComponent } from './components/tables/population/population.component';
+import { AreaComponent } from './components/tables/area/area.component';
 
 
 
@@ -19,7 +21,9 @@ import { ModalComponent } from './components/modal/modal.component';
   declarations: [
     CardComponent,
     HomeComponent,
-    ModalComponent
+    ModalComponent,
+    PopulationComponent,
+    AreaComponent
   ],
   exports:[
     HomeComponent

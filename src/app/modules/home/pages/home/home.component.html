@@ -7,8 +7,16 @@
 
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 m-4">
     <div class="col" *ngFor="let continent of continents">
-      <home-card [continent]="continent" (selectedParams)="getCountries($event)"></home-card>
+      <home-card [continent]="continent" (selectedParams)="getCountriesRegion($event)"></home-card>
     </div>
   </div>
 </div>
 <home-modal [countries]="countries" [modalTitle]="modalTitle" [loading]="loading"></home-modal>
+<div class="row  m-auto mt-5 mb-5" >
+    <div class="col-lg-3 offset-lg-2" >
+    <home-tables-area [topTenArea]="topTenArea"></home-tables-area>
+    </div>
+    <div class="col-lg-3 offset-lg-2">
+    <home-tables-population [topTenPopulation]="topTenPopulation"></home-tables-population>
+    </div>
+</div>

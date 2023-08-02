@@ -22,8 +22,12 @@
       <td><a href="https://www.openstreetmap.org/#map=5/{{country.latlng[0]}}/{{country.latlng[1]}}" target="_blank">{{country.latlng[0]}}, {{country.latlng[1]}}</a></td>
     </tr>
     <tr>
+      <th scope="row">Population</th>
+      <td>{{country.population | number}}</td>
+    </tr>
+    <tr>
       <th scope="row">Area</th>
-      <td>{{country.area}}km²</td>
+      <td>{{country.area | number}}km²</td>
     </tr>
     <tr *ngIf="country.borders">
       <th scope="row">Land borders</th>

@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { Continent } from 'src/app/modules/home/interfaces/continents.interface';
 import { CountriesFlag } from 'src/app/modules/home/interfaces/countriesFlag.interface';
 import { RegionParams } from 'src/app/modules/home/interfaces/region-params.interface';
 import { CountriesService } from 'src/app/core/services/countries/countries.service';
+import { Country } from 'src/app/modules/country/interfaces/country.interface';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,14 @@ import { CountriesService } from 'src/app/core/services/countries/countries.serv
 export class HomeComponent implements OnInit {
   title: string;
   continents: Continent[];
-  countries: CountriesFlag[];
+  countries: string[];
   modalTitle: string;
   loading: boolean;
+  topTenArea! : Country[];
+  topTenPopulation! : Country[];
 
   constructor(private _countriesServices: CountriesService) {
+    
     this.title = 'Discover the data of any country in the world';
     this.continents = [
       {
@@ -69,36 +73,40 @@ export class HomeComponent implements OnInit {
     this.modalTitle = '';
     this.loading = false;
   }
+  
+  ngOnInit(): void {
+    this.getCountries()
+   
+  }
 
-  ngOnInit(): void {}
+  getCountries(){
+    this._countriesServices.getCountries().subscribe( (res)=>{
+      let area = res.sort((
+        (a, b) => b.area - a.area)
+      )
+      this.topTenArea = area.slice(0,10)
 
-  getCountries(regionParams: RegionParams): void {
+      let population = res.sort((
+        (a, b) => b.population - a.population)
+      )
+      this.topTenPopulation = population.slice(0,10)
+    })} 
+  
+
+  getCountriesRegion(regionParams: RegionParams): void {
     this.loading = true;
 
     setTimeout(() => {
       this.modalTitle = regionParams.name;
       this._countriesServices.getCountriesRegion(regionParams.value).subscribe((res) => {
-        console.log(res)
-        let countries : CountriesFlag[] = [];
-        res.forEach(({translations, flags})=>{
-          let countryFlag : CountriesFlag = {
-            country: translations['spa'].common,
-            flag: flags.svg
-          }
-          countries.push(countryFlag)
+        
+        res.forEach(({name})=>{
+          this.countries.push(name.common)
         })
-        this.countries = countries.sort((a, b) => {
-          if (a.country > b.country) {
-            return 1;
-          }
-          if (a.country < b.country) {
-            return -1;
-          }
-          // a must be equal to b
-          return 0;
-        });
-        this.loading = false;
-      });
-    }, 1500);
+        this.countries.sort();
+        this.loading = false
+    })
+  }, 1500);
   }
+
 }

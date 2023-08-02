@@ -68,7 +68,7 @@ $breakPoints: (
             animation: heartbeat 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
   }
 
-  @media screen and (max-width:575px) {
+  @media screen and (max-width:990px) {
     .flex-column-Acenter{
       display: flex;
       flex-direction: column;
