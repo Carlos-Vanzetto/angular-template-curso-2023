@@ -1,6 +1,7 @@
 @use '../../../../styles/utils/tools';
 @use '../../../../styles/utils/setting';
 @use 'sass:map';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 $breakPoints: (
 	// zero
@@ -23,37 +24,49 @@ $breakPoints: (
     flex-direction: row;
     width: 100%;
     justify-content: space-evenly;
-    margin-top: 100px;
+    align-items: center;
+    
     min-height: 100vh;
 }
 
 .dev-portrait{
+  position: relative;
   margin: 0 auto;
-  font-size: smaller;
   display: flex;
   flex-direction: column;
   align-items: center;
+  bottom: 30px;
+  margin-top: 20px;
 }
 
 
 .image{
-    height:300px;
+    position: relative;
     width: 300px;
-    border-radius: 200px;
-    border: 3px solid white;
-    
-    transition: 500ms;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid white;
+    bottom: 30px;
+}
+
+.dev-signature{
+  top: 10px;
+  text-align: end;
+  width: 90%;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  position: relative;
 }
 
 
 
-
-
 .dev-description{
-    width: 500px;
-    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    width: 600px;
+    font-size: 1.3rem;
     margin-top: 2rem;
     padding-left: 15px;
+    font-weight: 100;
 }
 
 .text-focus-in {

@@ -1,4 +1,4 @@
-export interface New {
+export interface News {
     status:       string;
     totalResults: number;
     articles:     Article[];

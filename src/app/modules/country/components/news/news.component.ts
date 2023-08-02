@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Article } from 'src/app/modules/country/interfaces/new.interface';
-import { NewsService } from 'src/app/core/services/new/news.service';
+import { Article } from 'src/app/modules/country/interfaces/news.interface';
+import { NewsService } from 'src/app/core/services/news/news.service';
 import { Country } from '../../interfaces/country.interface';
 
 @Component({

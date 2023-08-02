@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Article } from '../../interfaces/new.interface';
+import { Article } from '../../interfaces/news.interface';
 
 @Component({
-  selector: 'country-new-card',
+  selector: 'country-news-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })

@@ -35,22 +35,22 @@ export class DateComponent implements OnInit {
     
     this.hourUTC = Number(this.timezones.length > 1 ? this.timezones[a].slice(3, 6) : this.timezones[0].slice(3, 6));
     this.minutesUTC = Number(this.timezones.length > 1 ? this.timezones[a].slice(7, 9) : this.timezones[0].slice(7, 9));
-    let momentoActual = new Date()
-    let hora = momentoActual.getUTCHours() + this.hourUTC ;
-    let minuto = momentoActual.getUTCMinutes() + this.minutesUTC;
-    let dateString = momentoActual.toLocaleDateString();
-    let getDate = momentoActual.getDate();
-    let fecha = hora >= 24 ? dateString.replace(String(getDate), String(getDate + 1)) : (hora < 0 ?dateString.replace(String(getDate), String(getDate - 1)) : dateString);
-    let horaExacta = hora >= 24 ? hora - 24 : (hora < 0 ? hora + 24 : hora);
-    let minutoExacto: number;
-    if (minuto > 60) {
-      minutoExacto = minuto - 60;
-      horaExacta++;
+    let currentMoment = new Date()
+    let time = currentMoment.getUTCHours() + this.hourUTC ;
+    let minute = currentMoment.getUTCMinutes() + this.minutesUTC;
+    let dateString = currentMoment.toLocaleDateString();
+    let getDate = currentMoment.getDate();
+    let date = time >= 24 ? dateString.replace(String(getDate), String(getDate + 1)) : (time < 0 ?dateString.replace(String(getDate), String(getDate - 1)) : dateString);
+    let exactTime = time >= 24 ? time - 24 : (time < 0 ? time + 24 : time);
+    let exactMinute: number;
+    if (minute > 60) {
+      exactMinute = minute - 60;
+      exactTime++;
     } else {
-      minutoExacto = minuto;
+      exactMinute = minute;
     }
-    let segundo = momentoActual.getSeconds()
-    this.date = fecha;
-    this.time = `${horaExacta}:${minutoExacto}:${segundo}`
+    let second = currentMoment.getSeconds()
+    this.date = date;
+    this.time = `${exactTime}:${exactMinute}:${second}`
   }
 }
