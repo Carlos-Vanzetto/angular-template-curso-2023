@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
         name: 'Americas',
         value: 'Americas',
         countries: 35,
-        area: '42.55 millones km²',
+        area: '42.55 millions km²',
         img: '../../../assets/images/america.jpg',
         description:
           'America is a vast continent that extends in the direction of the meridians, and also has a long latitudinal development.',
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
         name: 'Africa',
         value: 'Africa',
         countries: 54,
-        area: '30.37 millones km²',
+        area: '30.37 millions km²',
         img: '../../../assets/images/africa.jpg',
         description:
           'Africa is the third largest continent on the planet and its name corresponds to the word used by the ancient Romans to refer to all the countries south of the Mediterranean (Afri).',
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
         name: 'Europe',
         value: 'Europe',
         countries: 45,
-        area: '10.53 millones km²',
+        area: '10.53 millions km²',
         img: '../../../assets/images/europa.jpg',
         description:
           'Europe is one of the six continents in the world and the fifth largest. It is bordered to the north by the Arctic Ocean, to the south by the Mediterranean Sea, the Black Sea and the Caspian Sea, to the east by the Ural Mountains and to the west by the Atlantic Ocean.',
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
         name: 'Oceania',
         value: 'Oceania',
         countries: 14,
-        area: '8.526 millones km²',
+        area: '8.526 millions km²',
         img: '../../../assets/images/oceania.jpg',
         description:
           'Oceania is a fascinating continent, with Australia, New Zealand and French Polynesia being the best known countries.',
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
         name: 'Asia',
         value: 'Asia',
         countries: 46,
-        area: '44.58 millones km²',
+        area: '44.58 millions km²',
         img: '../../../assets/images/asia.jpg',
         description:
           'Asia is the largest continent and the one with the greatest diversity of races, cultures and languages ​​in the world.',
